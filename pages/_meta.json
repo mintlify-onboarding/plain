@@ -1,15 +1,16 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
-    "type": "page"
+   "index": "Introduction",
+   "-- Guides": {
+    "type": "separator",
+    "title": "Guides"
   },
-  "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://twitter.com/shuding_",
-    "newWindow": true
+  "set-up-email": "Set up email",
+  "set-up-contact-form": "Set up a contact form",
+  "set-up-chat": "Set up chat",
+  "set-up-custom-events": "Set up custom events",
+  "set-up-customer-cards": "Set up customer cards",
+  "-- API reference": {
+    "type": "separator",
+    "title": "API Reference"
   }
 }

@@ -4,11 +4,11 @@
     "type": "separator",
     "title": "Guides"
   },
-  "set-up-email": "Set up email",
-  "set-up-contact-form": "Set up a contact form",
-  "set-up-chat": "Set up chat",
-  "set-up-custom-events": "Set up custom events",
-  "set-up-customer-cards": "Set up customer cards",
+  "email-setup": "Set up email",
+  "contact-form-setup": "Set up a contact form",
+  "chat-setup": "Set up chat",
+  "custom-events-setup": "Set up custom events",
+  "customer-cards-setup": "Set up customer cards",
   "-- API reference": {
     "type": "separator",
     "title": "API Reference"

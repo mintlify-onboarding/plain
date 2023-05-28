@@ -32,14 +32,18 @@ verify them (on Plain's).
 Let's create a key pair and add the public key to your workspace:
 
 <Steps>
+
 ### Generate a key pair
-Run the following in your terminal and follow the prompts:<br/> _(The source code of this script is here: https://github.com/team-plain/generate-rsa-key-script)_
+
+Run the following in your terminal and follow the prompts:
 
 ```shell
 bash <(curl -fsSL https://raw.githubusercontent.com/team-plain/generate-rsa-key-script/main/generate_rsa_key_pairs.sh)
 ```
 
-After the script completed it should have created a private key ending in `.key.pem` and a public key ending in `.key.pem.pub`.
+The source code of this script is here: https://github.com/team-plain/generate-rsa-key-script
+
+After the script is done, it should have created a private key ending in `.key.pem` and a public key ending in `.key.pem.pub`.
 
 ### Add public key
 
@@ -186,8 +190,7 @@ You can find a similar library for any language on [https://jwt.io/libraries](ht
 
 The way you expose the JWT signing to your website is up to you.
 
-You can embed the resulting customer JWT in the page, serve it from an API, etc. It doesn't really matter as long as the **JWT is generated server-side** and the **private key is kept
-secret**.
+You can embed the resulting customer JWT in the page, serve it from an API, etc. It doesn't really matter as long as the **JWT is generated server-side** and the **private key is kept secret**.
 
 In this tutorial, we'll assume that we're exposing it through an API endpoint: `POST /api/get-customer-jwt`.
 
@@ -207,7 +210,7 @@ Now that we can generate a customer JWT we need to configure our chat to use it 
         current user), and show them the correct conversations with you.
 
         To specify the logged-in customer you have to provide the following
-        `customer` prop to the `PlainProvider` (replace `APP_KEY` with the key you obtained on [getting an app key](/chat-setup/app-key)):
+        `customer` prop to the `PlainProvider` (replace `APP_KEY` with the key you obtained on [getting an app key](./app-key)):
 
         ```typescript jsx {4-14}
         import React from 'react';
@@ -240,14 +243,13 @@ Now that we can generate a customer JWT we need to configure our chat to use it 
 
         The most important part here is the `getCustomerJwt` function. This function must return a valid customer JWT.
 
+        As a reminder: In this tutorial we're assuming that you are exposing the customer JWT via the API endpoint `/api/get-customer-jwt`.
 
-        The chat UI will call this function, querying your endpoint
-        `/api/get-customer-jwt/` and obtaining the customer JWT back. This JWT is
-        then sent to Plain and exchanged for a token, which is then used for the
-        duration of the chat session.
+        The JWT you provide will then be used by Plain to authenticate the customer and allow them to chat.
 
-        When the user logs out it is important you also log them out of Plain.
-        You can do this using the `usePlain` hook:
+        If you run your app now you should be able to chat in the `<Chat/>` component and see customer messages show up in your workspace in the [Support App](https://app.plain.com).
+
+        When the user logs out it is important you also log them out of Plain. You can do this using the `usePlain` hook:
 
         ```typescript jsx
         const { logout } = usePlain();
@@ -256,18 +258,15 @@ Now that we can generate a customer JWT we need to configure our chat to use it 
         </button>
         ```
 
-        If you run your app now you should be able to chat in the `<Chat/>`
-        component and see customer messages show up in your workspace in the [Support App](https://app.plain.com) 🎉
-
     </Tab>
 
     <Tab>
-        If you already [set up the script tag](./logged-out.md#script-tag) for logged-out users, you can update your code to
+        If you already [set up the script tag](./logged-out) for logged-out users, you can update your code to
         include the highlighted part below by invoking the `set-customer` action.
         Alternatively, copy and paste the whole code fragment (replace `APP_KEY`
-        with the key you obtained on [getting an app key](./app-key.md))
+        with the key you obtained on [getting an app key](./app-key))
 
-        ```html
+        ```html filename="index.html" {10-16} /APP_KEY/
         <script>
             window.$plain = window.$plain || [];
 
@@ -277,7 +276,6 @@ Now that we can generate a customer JWT we need to configure our chat to use it 
                 appKey: "APP_KEY"
             });
 
-            // highlight-start
             plain('set-customer', {
                 type: 'logged-in',
                 getCustomerJwt: () => {
@@ -286,31 +284,17 @@ Now that we can generate a customer JWT we need to configure our chat to use it 
                             .then(res => res.plain_customer_jwt);
                 }
             });
-            // highlight-end
         </script>
         <script async src="<https://customer-chat.cdn-plain.com/latest/customerChat.js>"></script>
         ```
 
-        The most important part here is the `getCustomerJwt` function. This
-        function must return a valid customer JWT.
+        The most important part here is the `getCustomerJwt` function. This function must return a valid customer JWT.
 
-        **In this case**, the function will be called when the page loads, querying
-        your endpoint `/api/get-customer-jwt/` and obtaining the customer JWT
-        back. This JWT is then sent to Plain and exchanged for a token, which is
-        then used for the duration of the chat session.
+        As a reminder: In this tutorial we're assuming that you are exposing the customer JWT via the API endpoint `/api/get-customer-jwt`.
 
-        When the user logs out, it is important you also log them out of Plain.
-        You can do this by invoking the following snippet on log out:
+        The JWT you provide will then be used by Plain to authenticate the customer and allow them to chat.
 
-        ```javascript
-        plain('set-customer', {
-            type: 'logged-out'
-        });
-        ```
-
-        And you are all set. At this point your logged-in users will be able to
-        send chat messages to you, and they will all show up as customers in your
-        workspace in the [Support App](https://app.plain.com).
+        At this point your logged-in users will be able to send chat messages to you, and they will all show up as customers in your workspace in the [Support App](https://app.plain.com).
     </Tab>
 
 </Tabs>

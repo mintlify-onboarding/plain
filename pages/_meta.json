@@ -1,16 +1,16 @@
 {
-   "index": "Introduction",
-   "-- Guides": {
+  "index": "Introduction",
+  "-- Guides": {
     "type": "separator",
     "title": "Guides"
   },
   "email-setup": "Set up email",
-  "contact-form-setup": "Set up a contact form",
   "chat-setup": "Set up chat",
-  "custom-events-setup": "Set up custom events",
-  "customer-cards-setup": "Set up customer cards",
-  "-- API reference": {
+  "customer-cards-setup": "Customer cards",
+  "custom-timeline-entries-setup": "Custom timeline entries",
+  "-- Reference": {
     "type": "separator",
-    "title": "API Reference"
-  }
+    "title": "Reference"
+  },
+  "ui-components": "UI Components"
 }

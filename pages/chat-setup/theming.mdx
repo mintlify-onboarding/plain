@@ -1,0 +1,58 @@
+import { Steps, Callout, Tabs, Tab } from 'nextra-theme-docs';
+
+# Theming
+
+The chat UI can be customised to fit your branding. There are different ways to do this based on how you chose to
+integrate the chat UI (script tag or npm package).
+
+<Tabs items={["React", "Script tag"]}>
+
+    <Tab>
+        The `theme` prop in `PlainProvider` allows you to incrementally adopt a custom theme for your chat. Any values not provided by your custom theme will fall back to the `defaultTheme` which you can import from `@team-plain/react-chat-ui`.
+
+        For those using Typescript, the type `ThemeConfig` is available from `@team-plain/react-chat-ui`.
+
+        An example using a custom theme is below:
+
+        ```typescript jsx {18}
+        import { ThemeConfig } from '@team-plain/react-chat-ui';
+
+        const customTheme: ThemeConfig = {
+            fontFamily: {
+                body: "'ABeeZee', sans-serif",
+                heading: "'ABeeZee', sans-serif",
+            },
+
+            fontSize: {
+                s: '12px',
+                m: '14px',
+                l: '16px',
+                xl: '20px',
+            },
+            // ...
+        }
+
+        <PlainProvider appKey="APP_KEY" theme={customTheme}>
+            <h1>My app</h1>
+            <Chat/>
+        </PlainProvider>
+        ```
+    </Tab>
+
+    <Tab>
+        Currently, it's only possible to change the colour of the button that
+        opens the chat. You can do this by using the `set-theme` action:
+
+        ```javascript
+        plain('set-theme', { brandColor: '#fcba03' });
+        ```
+
+        Different colour formats are supported:
+
+        - **Named colour:** `red`
+        - **HEX:** `#00224F`
+        - **RGB / RGBA:** `rgb(255,0,0)` / `rgba(255,0,0,0.35)`
+        - **HSL / HSLA:** `hsl(120,100%,75%)` / `hsla(120,100%,75%, 0.5)`
+    </Tab>
+
+</Tabs>

@@ -1,4 +1,3 @@
-
 # Introduction to Plain
 
 Plain is an the customer customer support tool for technical products.
@@ -29,6 +28,7 @@ First you should sign-up to plain. You can do so on https://app.plain.com/ and s
 This means at the very least [setting up email](/TODO).
 
 After that you can:
+
 - [Build a contact form](/TODO) to pre-triage all of your customer requests
 - [Setting up chat](/TODO) to talk to your customers more quickly
 - [Log important events to your customer's timelines](/TODO) so that when they get in touch

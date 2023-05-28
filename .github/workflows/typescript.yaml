@@ -1,0 +1,32 @@
+name: Typecheck
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  typecheck:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: v1-${{ runner.os }}-pnpm-build-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            v1-${{ runner.os }}-pnpm-build-
+            v1-${{ runner.os }}-
+      - name: Install pnpm
+        run: npm install -g pnpm@7
+      - name: Install deps
+        run: pnpm i
+      - name: Typecheck
+        run: pnpm run typecheck

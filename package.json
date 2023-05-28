@@ -6,7 +6,7 @@
     "dev": "next dev --port=4100",
     "build": "next build",
     "start": "next start",
-    "lint": "prettier --check './**/*.{js,md,mdx}' --ignore-path .gitignore",
+    "lint": "prettier --check './**/*.{js,ts,tsx,md,mdx}'",
     "typecheck": "tsc"
   },
   "repository": {

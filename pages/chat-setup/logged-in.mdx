@@ -1,10 +1,10 @@
-import { Steps, Callout, Tabs, Tab } from "nextra-theme-docs";
+import { Steps, Callout, Tabs, Tab } from 'nextra-theme-docs';
 
 # Support for logged-in users
 
 <Callout type="info" emoji="👉">
-  This guide assumes you've completed the logged-out chat setup. If you haven't,
-  please head over to the [logged-out chat setup](./logged-out) first.
+  This guide assumes you've completed the logged-out chat setup. If you haven't, please head over to
+  the [logged-out chat setup](./logged-out) first.
 </Callout>
 
 This guide will talk you through how to set up chat for customers who are logged into your app so they can skip the email authentication flow you get in the logged-out chat experience.
@@ -164,21 +164,21 @@ Here is an example of how you could do this in NodeJS. The code assumes your
 private key is exposed as an environment variable `PRIVATE_KEY` with no passphrase.
 
 ```javascript
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 
 const customer = {
-  fullName: "Garnett Hermann",
-  shortName: "Garnett",
+  fullName: 'Garnett Hermann',
+  shortName: 'Garnett',
   email: {
-    email: "garnett.hermann@aol.com",
+    email: 'garnett.hermann@aol.com',
     isVerified: false,
   },
-  externalId: "your_id",
+  externalId: 'your_id',
 };
 
 const token = jwt.sign(customer, process.env.PRIVATE_KEY, {
-  algorithm: "RS256",
-  expiresIn: "1h",
+  algorithm: 'RS256',
+  expiresIn: '1h',
 });
 ```
 
@@ -240,7 +240,6 @@ Now that we can generate a customer JWT we need to configure our chat to use it 
 
         The most important part here is the `getCustomerJwt` function. This function must return a valid customer JWT.
 
-        -- TODO GOT HERE --
 
         The chat UI will call this function, querying your endpoint
         `/api/get-customer-jwt/` and obtaining the customer JWT back. This JWT is

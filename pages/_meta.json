@@ -6,8 +6,8 @@
   },
   "email-setup": "Set up email",
   "chat-setup": "Set up chat",
-  "customer-cards-setup": "Customer cards",
-  "custom-timeline-entries-setup": "Custom timeline entries",
+  "customer-cards": "Customer cards",
+  "custom-timeline-entries": "Custom timeline entries",
   "-- Reference": {
     "type": "separator",
     "title": "Reference"

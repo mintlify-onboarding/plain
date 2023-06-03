@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "prettier --check './**/*.{js,ts,tsx,md,mdx}'",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "preinstall": "npx only-allow pnpm"
   },
   "repository": {
     "type": "git",

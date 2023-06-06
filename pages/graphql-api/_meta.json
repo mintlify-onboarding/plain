@@ -3,7 +3,7 @@
   "authentication": "Authentication",
   "error-handling": "Error handling",
   "api-explorer": {
-    "title": "API explorer",
+    "title": "API Explorer",
     "href": "https://app.plain.com/developer/api-explorer/",
     "newWindow": true
   },

@@ -34,6 +34,12 @@ const config: DocsThemeConfig = {
     content: 'Question? Give us feedback →',
     labels: 'feedback',
   },
+
+  useNextSeoProps() {
+    return {
+      titleTemplate: '%s – Plain',
+    };
+  },
 };
 
 export default config;

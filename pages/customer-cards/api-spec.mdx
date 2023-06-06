@@ -3,7 +3,7 @@ import { Callout } from 'nextra-theme-docs';
 # Building a customer cards API
 
 This page is intended for a technical audience that will be implementing a customer card API.
-Check out the [customer cards](../adding-context/customer-cards.md) page for an overview.
+Check out the [customer cards](/customer-cards) page for an overview.
 
 ## Protocol overview
 
@@ -17,7 +17,7 @@ This means that if your APIs are slow your users of the Support App will see a l
    details).
 4. Your APIs are then called with the customer's details, so you can look up the customer's data in your systems
    (see [request](#request) section for details).
-5. Your APIs then return customer cards that consist of [Plain UI components](../adding-context/ui-components.md)
+5. Your APIs then return customer cards that consist of [Plain UI components](/ui-components)
    (see [response](#response) section for details).
 6. The cards are cached based on either an explicit TTL value in the response or the default TTL in the card config.
 7. Card are shown to the user in Plain.

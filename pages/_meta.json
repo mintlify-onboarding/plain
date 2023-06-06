@@ -6,14 +6,16 @@
   },
   "email-setup": "Set up email",
   "chat-setup": "Set up chat",
-  "customer-cards": "Customer cards",
-  "custom-timeline-entries": "Custom timeline entries",
+  "customer-cards": "Customer Cards",
+  "custom-timeline-entries": "Custom Timeline Entries",
   "managing-customers": "Managing customers",
   "-- Reference": {
     "type": "separator",
     "title": "Reference"
   },
   "graphql-api": "GraphQL API",
-  "error-codes": "Error codes",
-  "ui-components": "UI Components"
+  "webhooks": "Webhooks",
+  "ui-components": "UI Components",
+  "attachments": "Attachments",
+  "error-codes": "Error codes"
 }

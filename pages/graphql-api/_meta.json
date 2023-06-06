@@ -1,0 +1,15 @@
+{
+  "index": "Overview",
+  "authentication": "Authentication",
+  "error-handling": "Error handling",
+  "api-explorer": {
+    "title": "API explorer",
+    "href": "https://app.plain.com/developer/api-explorer/",
+    "newWindow": true
+  },
+  "typescript-sdk": {
+    "title": "Typescript SDK",
+    "href": "https://github.com/team-plain/typescript-sdk/",
+    "newWindow": true
+  }
+}

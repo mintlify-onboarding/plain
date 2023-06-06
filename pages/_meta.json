@@ -8,9 +8,12 @@
   "chat-setup": "Set up chat",
   "customer-cards": "Customer cards",
   "custom-timeline-entries": "Custom timeline entries",
+  "managing-customers": "Managing customers",
   "-- Reference": {
     "type": "separator",
     "title": "Reference"
   },
+  "graphql-api": "GraphQL API",
+  "error-codes": "Error codes",
   "ui-components": "UI Components"
 }

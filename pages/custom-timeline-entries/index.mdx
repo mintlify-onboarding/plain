@@ -1,3 +1,39 @@
 import { Steps, Callout, Tabs, Tab } from 'nextra-theme-docs';
 
-<Callout emoji="🚧">This page is a work in progress.</Callout>
+# Custom timeline entries
+
+With **Custom Timeline Entries** you can log custom events in a customer's timeline that are specific to your product and systems using the Plain API. This lets you both have the full context when helping your customers as well as offer proactive support when something goes wrong.
+
+Some example use cases for Custom Timeline Entries are:
+
+- Submiting custom contact forms for getting in touch, bug reports, feature requests, etc.
+- Logging important events specific to your product
+- Account level changes such changes in the subscription tier
+- Outages or errors, so you know when someone gets in touch if they were affected
+- Invoicing events
+
+![Custom Timeline Entry examples](/images/custom-timeline-entries/cte-examples.png)
+
+## How it works
+
+Custom timeline entries are created using the Plain API. You decide what to show by specifying the [UI Components](/ui-components) you want to show in JSON (similar to how you format a Slack messages).
+
+[**Make your first custom timeline entry →**](/custom-timeline-entries/documentation)
+
+## Playground
+
+The [Custom Timeline Entry Playground](https://app.plain.com/developer/custom-timeline-entry-playground/) lets you build and preview the component JSON needed to create an entry. Use this to prototype an entry before building the real thing.
+
+![Custom Timeline Entry Playground](/images/custom-timeline-entries/cte-playground.png)
+
+## Custom Timeline Entries vs. Customer Cards
+
+Timeline Entries are used to add context to a customer's timeline. They should be used when you want to add data at a specific point in time.
+
+If you want to be able to always see certain key information about a customer (e.g. their pricing plan they are on) outside their timeline, then using [Customer Cards](./customer-cards.md) is more appropriate.
+
+## Pricing
+
+Creating Customer Timeline Entries is a billable activity.
+
+If a Custom Timeline Entry is created for a customer, this customer will count towards your workspace's monthly active customer total.

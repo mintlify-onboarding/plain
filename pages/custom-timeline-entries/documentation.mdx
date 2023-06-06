@@ -1,0 +1,157 @@
+import { Steps, Callout, Tabs, Tab } from 'nextra-theme-docs';
+
+# Creating a custom timeline entry
+
+In this recipe we'll be creating a refund timeline entry as seen in the screenshot:
+
+![A custom timeline entry in a customer's timeline](/images/custom-timeline-entries/example-entry.png)
+
+## Getting started
+
+Before we make any API calls we first need to decide what we want the custom timeline entry to look like. You can use the [custom timeline entry playground](https://app.plain.com/developer/custom-timeline-entry-playground/) to prototype an entry.
+
+In this example we'll use the "Refund processed" template but the full list of components that you can use in the custom timeline entry are documented in [Plain UI Components](/ui-components).
+
+We'll be using the `upsertCustomTimelineEntry` mutation which allows to create a new custom timeline entry or update one if it exists.
+This mutation requires the following permissions:
+
+- `timeline:create`
+- `timeline:edit`
+
+## Creating a custom timeline entry
+
+<Tabs items={["Typescript SDK", "GraphQL"]}>
+
+    <Tab>
+
+    </Tab>
+
+    <Tab>
+        The GraphQL mutation is the following:
+
+        ```graphql
+        mutation upsertCustomTimelineEntry($input: UpsertCustomTimelineEntryInput!) {
+            upsertCustomTimelineEntry(input: $input) {
+                result
+                timelineEntry {
+                    id
+                    customerId
+                    timestamp {
+                        iso8601
+                    }
+                    entry {
+                        ... on CustomEntry {
+                            title
+                            # There are many more fields you could select here
+                            # we're keeping it simple for this example.
+                        }
+                    }
+                    error {
+                        message
+                        type
+                        code
+                        fields {
+                            field
+                            message
+                            type
+                        }
+                    }
+                }
+            }
+        }
+        ```
+
+
+
+        #### Variables
+
+        **This is important:** remember to replace `c_XXXXXXXXXXXXXXXXXXXXXXXXXX` with an existing customer's id.
+
+        ```json5 {2}
+        {
+            input: {
+                customerId: 'c_XXXXXXXXXXXXXXXXXXXXXXXXXX',
+                title: 'Refund processed',
+                components: [
+                    {
+                        componentText: {
+                        text: 'Invoice **#1301** was refunded to customer',
+                        },
+                    },
+                    {
+                        componentSpacer: {
+                        spacerSize: 'XS',
+                        },
+                    },
+                    {
+                        componentText: {
+                        textSize: 'L',
+                        textColor: 'SUCCESS',
+                        text: '**+ $413.20**',
+                        },
+                    },
+                    {
+                        componentDivider: {
+                        spacingSize: 'M',
+                        },
+                    },
+                    {
+                        componentLinkButton: {
+                        url: 'https://stripe.com',
+                        label: 'View in Stripe',
+                        },
+                    },
+                ],
+            },
+        }
+        ```
+
+        #### Response
+
+        ```json
+        {
+            "data": {
+                "upsertCustomTimelineEntry": {
+                    "result": "CREATED",
+                    "timelineEntry": {
+                        "id": "t_01G9F4N117KW1VDPCFB8JSM5SF",
+                        "customerId": "c_01G8JNBQMCJ46JTR7FEB68HTN0",
+                        "timestamp": {
+                            "iso8601": "2022-08-02T11:21:58.055Z"
+                        },
+                        "entry": {
+                            "title": "Refund processed",
+                            "externalId": null,
+                        },
+                    },
+                    "error": null,
+                }
+            }
+        }
+        ```
+    </Tab>
+
+</Tabs>
+
+## Side effects of custom timeline entries
+
+When upserting a custom timeline entry you can also optionally specify any side effects which allow you to control what happens after you create a new custom timeline entry.
+
+This is to support different kinds of entries. For example when a significant error happens in your back-end, and you create a custom timeline entry, you might want to proactively reach out the customer. Alternatively if the customer just makes a change to their account you probably don't need to do anything.
+
+#### `changeCustomerStatusToActive`
+
+If set to `true`, the customer's state will change to `ACTIVE` which will move them the Waiting for Help queue. A notification will be sent (depending on notification settings) exactly as if a customer got in touch like normal via email or chat.
+
+#### `sendCustomTimelineEntryCreatedNotification`
+
+If set to `true`, a notification will be sent **to the user assigned to the customer**, if they have the corresponding setting enabled in their notification settings.
+
+<Callout type="info" emoji="💁‍♂️">
+
+It's perfectly valid to set both of these fields to `true` at the same time. If you do this, the customer's state will move to `ACTIVE` and a notification will be sent to the assigned user and/or every other user in the workspace.
+
+</Callout>
+
+If you have any problems, please get in touch with us by email on
+[help@plain.com](mailto:help@plain.com), and we will be happy to help.

@@ -1,4 +1,5 @@
 import { Callout, Steps, Tab, Tabs } from 'nextra-theme-docs';
+import { ImageContainer } from '../components/imageContainer';
 
 # Setting up email
 
@@ -56,13 +57,15 @@ You can find this here: https://admin.google.com/u/0/ac/apps/gmail/defaultroutin
 
 Under "Default routing" click on "CONFIGURE" or "ADD ANOTHER RULE"
 
-![Add new rule](/images/email-setup/email-setup-0.png)
+<ImageContainer>![Add new rule](/images/email-setup/email-setup-0.png)</ImageContainer>
 
 ### Set the recipient
 
 In the dropdown, select "Single recipient" and write your **support email address** under "Email address"
 
-![Add your support email address](/images/email-setup/email-setup-1.png)
+<ImageContainer>
+  ![Add your support email address](/images/email-setup/email-setup-1.png)
+</ImageContainer>
 
 ### Check the box "Change envelope recipient"
 
@@ -70,13 +73,13 @@ In the dropdown, select "Single recipient" and write your **support email addres
 
 Choose "Replace recipient" and paste the inbound email address (`@inbound.postmarkapp.com`)
 
-![Replace recipient](/images/email-setup/email-setup-2.png)
+<ImageContainer>![Replace recipient](/images/email-setup/email-setup-2.png)</ImageContainer>
 
 ### Set who the rule applies to
 
 Scroll further down, and choose "Perform this action on non-recognised and recognised addresses"
 
-![Apply to all addresses](/images/email-setup/email-setup-3.png)
+<ImageContainer>![Apply to all addresses](/images/email-setup/email-setup-3.png)</ImageContainer>
 
 ### Click on "Save"
 
@@ -94,7 +97,7 @@ address, you will need to add a couple of DNS records to your domain.
 While setting up your email, you will see DNS settings that need to be
 configured for your domain:
 
-![DNS settings](/images/email-setup/email-setup-4.png)
+<ImageContainer>![DNS settings](/images/email-setup/email-setup-4.png)</ImageContainer>
 
 <Callout type="info" emoji="️👉">
 **What are these records exactly?**

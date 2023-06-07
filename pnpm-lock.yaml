@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@types/node': 18.11.10
   '@types/react': 18.2.7
+  clsx: ^1.2.1
   eslint: ^8.42.0
   eslint-config-next: ^13.4.4
   eslint-config-prettier: ^8.8.0
@@ -19,6 +20,7 @@ specifiers:
   typescript: ^4.9.3
 
 dependencies:
+  clsx: 1.2.1
   next: 13.0.6_biqbaboplfbrettd7655fr4n2y
   nextra: 2.7.1_6jx7hpii6hgsrmhxgqrmo3277u
   nextra-theme-docs: 2.7.1_qrmxij7f6ucwnseiw6zk6bloce

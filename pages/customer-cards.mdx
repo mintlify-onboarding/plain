@@ -1,4 +1,6 @@
-Customer cards
+import { ImageContainer } from '../components/imageContainer';
+
+# Customer cards
 
 Customer cards are a powerful feature in Plain which let you show any information you want about a customer in Plain. This makes sure you always have important context when helping customers.
 
@@ -9,7 +11,9 @@ Customer cards are:
 - Defined using a simple **JSON** schema, so you don't have to worry about styling them.
 - **Automatically reloaded** if a user is viewing a customer and the data expires.
 
-![Screenshot of the customer cards feature](/images/customer-cards/customer-cards-headline.png)
+<ImageContainer>
+  ![Screenshot of the customer cards feature](/images/customer-cards/customer-cards-headline.png)
+</ImageContainer>
 
 ## How does it work
 
@@ -77,7 +81,9 @@ Any card that is past its expiry time will usually be deleted within a few minut
 
 The [Customer Cards Playground](https://app.plain.com/developer/customer-cards-playground/) lets you build and preview the component JSON needed to create a customer card. Use this to prototype a customer card before starting to build your integration.
 
-![Customer Cards Playground](/images/customer-cards/customer-cards-playground.png)
+<ImageContainer>
+  ![Customer Cards Playground](/images/customer-cards/customer-cards-playground.png)
+</ImageContainer>
 
 ## Customer cards vs. custom timeline entries
 

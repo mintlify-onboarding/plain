@@ -1,0 +1,16 @@
+.wrapper {
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.wrapper:not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+.withBorder {
+  border: 1px solid #ededef;
+}
+
+:global(.dark) .withBorder {
+  border: none;
+}

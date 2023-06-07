@@ -1,3 +1,28 @@
 import { Callout } from 'nextra-theme-docs';
 
-<Callout emoji="🚧">This page is a work in progress.</Callout>
+import { ImageContainer } from '../../components/imageContainer';
+
+# CopyButton
+
+Useful if you have any IDs or other details you want to copy for use in messages or outside of Plain.
+
+<ImageContainer withBorder={true}>
+  ![Example copy button](/images/ui-components/copy-button.png)
+</ImageContainer>
+
+A copy button has the following properties:
+
+- `copyButtonTooltipLabel` (optional): the text that should be displayed on hover. Defaults to the value if not
+  provided.
+- `copyButtonValue`: the value that should be copied to the user's clipboard after clicking the button
+
+For example:
+
+```json
+{
+  "componentCopyButton": {
+    "copyButtonTooltipLabel": "Order ID",
+    "copyButtonValue": "2a8f2dae-3580-402b-aa0a-243efae55e39"
+  }
+}
+```

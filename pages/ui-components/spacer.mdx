@@ -1,3 +1,35 @@
 import { Callout } from 'nextra-theme-docs';
 
-<Callout emoji="🚧">This page is a work in progress.</Callout>
+import { ImageContainer } from '../../components/imageContainer';
+
+# Spacer
+
+<ImageContainer withBorder={true}>
+  ![Example spacer](/images/ui-components/spacer.png)
+</ImageContainer>
+
+A link button has the following properties:
+
+- `spacerSize`: the amount of space the component should take up. One of `XS`, `S`, `M`, `L`, `XL`.
+
+For example:
+
+```json {7-11}
+[
+  {
+    "componentText": {
+      "text": "Content before an XS spacer"
+    }
+  },
+  {
+    "componentSpacer": {
+      "spacerSize": "XS"
+    }
+  },
+  {
+    "componentText": {
+      "text": "Content before an S spacer"
+    }
+  }
+]
+```

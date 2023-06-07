@@ -1,3 +1,27 @@
 import { Callout } from 'nextra-theme-docs';
 
-<Callout emoji="🚧">This page is a work in progress.</Callout>
+import { ImageContainer } from '../../components/imageContainer';
+
+# LinkButton
+
+Useful when you want to link somewhere external (e.g. your own admin tool or payment provider)
+
+<ImageContainer withBorder={true}>
+  ![Example link button](/images/ui-components/link-button.png)
+</ImageContainer>
+
+A link button has the following properties:
+
+- `linkButtonLabel`: the text of the button
+- `linkButtonUrl`: the URL the button should open in a new tab
+
+For example:
+
+```json
+{
+  "componentLinkButton": {
+    "linkButtonLabel": "Open in Admin Portal",
+    "linkButtonUrl": "https://example.com"
+  }
+}
+```

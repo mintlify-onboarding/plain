@@ -1,3 +1,26 @@
 import { Callout } from 'nextra-theme-docs';
+import { ImageContainer } from '../../components/imageContainer';
 
-<Callout emoji="🚧">This page is a work in progress.</Callout>
+# Badge
+
+Useful for statuses or when you need to attract attention to something.
+
+<ImageContainer withBorder={true}>
+  ![Example badges](/images/ui-components/badge.png)
+</ImageContainer>
+
+A badge has the following properties:
+
+- `badgeLabel`: the text that should be displayed on the badge
+- `badgeColor`: one of `GREY`, `GREEN`, `YELLOW`, `RED`, `BLUE`
+
+For example:
+
+```json
+{
+  "componentBadge": {
+    "badgeLabel": "Subscribed",
+    "badgeColor": "GREEN"
+  }
+}
+```

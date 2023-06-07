@@ -1,3 +1,68 @@
 import { Callout } from 'nextra-theme-docs';
 
-<Callout emoji="🚧">This page is a work in progress.</Callout>
+import { ImageContainer } from '../../components/imageContainer';
+
+# Text
+
+<ImageContainer withBorder={true}>![Example text](/images/ui-components/text.png)</ImageContainer>
+
+The text component has the following properties:
+
+- `text`: the text
+- `textSize` (optional): one of `S`, `M`, `L`, defaults to `M`
+- `textColor` (optional): one of `NORMAL`, `MUTED`, `SUCCESS`, `WARNING`, `ERROR`, defaults to `NORMAL`
+
+For example:
+
+```json
+[
+  {
+    "componentText": {
+      "text": "Small text",
+      "textSize": "S"
+    }
+  },
+  {
+    "componentText": {
+      "text": "Medium text",
+      "textSize": "M"
+    }
+  },
+  {
+    "componentText": {
+      "text": "Large text",
+      "textSize": "L"
+    }
+  },
+  {
+    "componentText": {
+      "text": "Normal text",
+      "textColor": "NORMAL"
+    }
+  },
+  {
+    "componentText": {
+      "text": "Muted text",
+      "textColor": "MUTED"
+    }
+  },
+  {
+    "componentText": {
+      "text": "Success text",
+      "textColor": "SUCCESS"
+    }
+  },
+  {
+    "componentText": {
+      "text": "Warning text",
+      "textColor": "WARNING"
+    }
+  },
+  {
+    "componentText": {
+      "text": "Error text",
+      "textColor": "ERROR"
+    }
+  }
+]
+```

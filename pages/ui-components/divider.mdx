@@ -1,3 +1,38 @@
 import { Callout } from 'nextra-theme-docs';
 
-<Callout emoji="🚧">This page is a work in progress.</Callout>
+import { ImageContainer } from '../../components/imageContainer';
+
+# Divider
+
+Useful when you need a bit of structure.
+
+<ImageContainer withBorder={true}>
+  ![Example divider (LOL)](/images/ui-components/divider.png)
+</ImageContainer>
+
+A divider has the following properties:
+
+- `dividerSpacingSize` (optional): the spacing the divider should have before and after the component. One of `XS`, `S`,
+  `M`, `L`, `XL`. Defaults to `S`.
+
+For example:
+
+```json {7-11}
+[
+  {
+    "componentText": {
+      "text": "Content before an XS divider"
+    }
+  },
+  {
+    "componentDivider": {
+      "dividerSpacingSize": "XS"
+    }
+  },
+  {
+    "componentText": {
+      "text": "Content before an S divider"
+    }
+  }
+]
+```

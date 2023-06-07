@@ -1,3 +1,41 @@
 import { Callout } from 'nextra-theme-docs';
+import { ImageContainer } from '../../components/imageContainer';
 
-<Callout emoji="🚧">This page is a work in progress.</Callout>
+# Container
+
+Useful when you need to create a bit of structure.
+
+<ImageContainer withBorder={true}>
+  ![Example container](/images/ui-components/container.png)
+</ImageContainer>
+
+A container has the following properties:
+
+- `containerContent` (min 1): an array of components.
+
+Allowed components within a Container are:
+
+- [Badge](/ui-components/badge)
+- [CopyButton](/ui-components/copy-button)
+- [Divider](/ui-components/divider)
+- [LinkButton](/ui-components/link-button)
+- [Row](/ui-components/row)
+- [Spacer](/ui-components/spacer)
+- [Text](/ui-components/text)
+- [PlainText](/ui-components/plain-text)
+
+For example:
+
+```json
+{
+  "componentContainer": {
+    "containerContent": [
+      {
+        "componentText": {
+          "text": "Container content"
+        }
+      }
+    ]
+  }
+}
+```

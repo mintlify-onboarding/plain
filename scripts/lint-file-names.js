@@ -9,7 +9,7 @@ const exceptions = [
   'package.json',
   'next.config.js',
   'next-env.d.ts',
-  'README.md',
+  'readme.md',
 ];
 
 const codeFile = /[a-zA-Z]+(js|ts|tsx)/g;
@@ -22,6 +22,7 @@ async function lint() {
   const allFiles = await glob('**/**.*', { ignore: ['node_modules/**'] });
 
   console.log(`👉 Linting ${allFiles.length} files.`);
+
   allFiles.forEach((file) => {
     const allowedPatterns = [pageRegex, pageMetaRegex, imageRegex, codeFile];
 

@@ -1,3 +1,80 @@
 import { Callout } from 'nextra-theme-docs';
 
-<Callout emoji="🚧">This page is a work in progress.</Callout>
+# Customer Changed Event
+
+This event is fired whenever any property of a customer is changed including when they are created, their status or assignment changes.
+
+## Schema
+
+[**View JSON Schema →**](https://json-schema.app/view/%23/%23%2Fdefinitions%2FcustomerChangedPayload?url=https%3A%2F%2Fcore-api.uk.plain.com%2Fwebhooks%2Fschema.json)
+
+Example:
+
+```json
+{
+  "timestamp": "2023-02-21T13:27:33.811Z",
+  "workspaceId": "w_01GST2GVS0BD0X09D1A4DHDDR1",
+  "payload": {
+    "changeType": "UPDATED",
+    "eventType": "customer.customer_changed",
+    "customer": {
+      "id": "c_01GST2GWV8YX7141MNS8QKMN5Y",
+      "email": {
+        "email": "jasmin.brekke1fvr9@example.com",
+        "isVerified": false,
+        "verifiedAt": null
+      },
+      "externalId": "external_01GST2GWSYTS81Q11G5W83PJP3",
+      "fullName": "Jasmin Brekke",
+      "shortName": "Jasmin",
+      "assignedAt": null,
+      "assignedToUser": null,
+      "status": "ACTIVE",
+      "statusChangedAt": "2023-02-21T13:27:33.700Z",
+      "createdAt": "2023-02-21T13:27:33.480Z",
+      "createdBy": {
+        "actorType": "user",
+        "userId": "u_01GST2GVJYJYX4KPYQD6YQ87M1"
+      },
+      "updatedAt": "2023-02-21T13:27:33.700Z",
+      "updatedBy": {
+        "actorType": "user",
+        "userId": "u_01GST2GVJYJYX4KPYQD6YQ87M1"
+      }
+    },
+    "previousCustomer": {
+      "id": "c_01GST2GWV8YX7141MNS8QKMN5Y",
+      "email": {
+        "email": "jasmin.brekke1fvr9@example.com",
+        "isVerified": false,
+        "verifiedAt": null
+      },
+      "externalId": "external_01GST2GWSYTS81Q11G5W83PJP3",
+      "fullName": "Jasmin Brekke",
+      "shortName": "Jasmin",
+      "assignedAt": null,
+      "assignedToUser": null,
+      "status": "ACTIVE",
+      "statusChangedAt": "2023-02-21T13:27:33.480Z",
+      "createdAt": "2023-02-21T13:27:33.480Z",
+      "createdBy": {
+        "actorType": "user",
+        "userId": "u_01GST2GVJYJYX4KPYQD6YQ87M1"
+      },
+      "updatedAt": "2023-02-21T13:27:33.480Z",
+      "updatedBy": {
+        "actorType": "user",
+        "userId": "u_01GST2GVJYJYX4KPYQD6YQ87M1"
+      }
+    }
+  },
+  "id": "pEv_01GST2GX5KA170WQKG8V0GWMNN",
+  "webhookMetadata": {
+    "webhookTargetId": "whTarget_01GST2GW9PXD7FMW924XF13M99",
+    "webhookDeliveryAttemptId": "whAttempt_01GST2GXPW3RP4TVE8A73Q56AH",
+    "webhookDeliveryAttemptNumber": 1,
+    "webhookDeliveryAttemptTimestamp": "2023-02-21T13:27:34.364Z"
+  },
+  "type": "customer.customer_changed"
+}
+```

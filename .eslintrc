@@ -1,0 +1,21 @@
+{
+  "extends": ["next", "plugin:mdx/recommended", "prettier"],
+  "settings": {
+    "mdx/code-blocks": true
+  },
+  "plugins": ["unused-imports", "simple-import-sort"],
+  "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    "import/no-useless-path-segments": [
+      "error",
+      {
+        "noUselessIndex": true
+      }
+    ],
+    "unused-imports/no-unused-imports": "error"
+  }
+}

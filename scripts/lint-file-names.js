@@ -12,10 +12,11 @@ const exceptions = [
   'readme.md',
 ];
 
-const codeFile = /[a-zA-Z]+(js|ts|tsx)/g;
-const pageRegex = /pages\/[a-z-\/]+.mdx/g;
-const pageMetaRegex = /pages\/[a-z-\/]*_meta.json/g;
-const imageRegex = /public\/[a-z-/0-9]+.(png|svg|ico)/g;
+const codeFile = /[a-zA-Z]+\.(js|ts|tsx)/g;
+const cssModuleFiles = /[a-zA-Z]+\.module\.css/g;
+const pageRegex = /pages\/[a-z-\/]+\.mdx/g;
+const pageMetaRegex = /pages\/[a-z-\/]*_meta\.json/g;
+const imageRegex = /public\/[a-z-/0-9]+\.(png|svg|ico|jpeg|jpg)/g;
 
 async function lint() {
   const errors = [];
@@ -24,7 +25,7 @@ async function lint() {
   console.log(`👉 Linting ${allFiles.length} files.`);
 
   allFiles.forEach((file) => {
-    const allowedPatterns = [pageRegex, pageMetaRegex, imageRegex, codeFile];
+    const allowedPatterns = [pageRegex, pageMetaRegex, imageRegex, codeFile, cssModuleFiles];
 
     const isException = exceptions.includes(file);
 

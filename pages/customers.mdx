@@ -1,0 +1,30 @@
+import { Callout } from 'nextra-theme-docs';
+
+# Managing Customers
+
+<Callout emoji="💅" type="info">
+  This is optional and not a required step to use Plain.
+</Callout>
+
+Customers that reach out to you will automatically be created in Plain without requiring any API integration.
+
+However, using our API to manage customers proactively can be helpful when you are optimising your support workflow.
+
+For example:
+
+- You can [**put customers into groups**](/customers/customer-groups/) to allow you to better organize your support queue. For example, you could break your customers down into what tier they are in (e.g. Free Tier, Teams, Enterprise)
+- You can [**create customers**](/customers/upsert-customers/) in Plain when they sign-up so that you can reach out to them proactively without waiting for them to get in touch.
+- You can [**save your own customer's ID**](/customers/upsert-customers) on the Plain customer for use with [**Customer Cards**](/customer-cards/).
+
+## Data model
+
+Customers in Plain are very thin, with only a handful of fields by design. If you want to show more information on a customer, you should use [Customer Cards](/customer-cards/).
+
+The key fields on a customer are:
+
+- `fullName`: The customer's first and last name together (e.g. Jane Foo)
+- `shortName`: The customer's first name (e.g. Jane)
+- `email`
+  - `email`: Their email address. Email addresses are unique to customers in Plain.
+  - `isVerified`: A boolean indicating whether the customer's email is somehow verified (e.g. it's their login method in your product)
+- `externalId`: The customer's ID in your systems. This is the field that lets you join customers in Plain with customers in your systems.

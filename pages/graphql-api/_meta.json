@@ -1,5 +1,6 @@
 {
   "authentication": "Authentication",
+  "schema": "Schema",
   "error-handling": "Error handling",
   "error-codes": {
     "title": "Error codes"

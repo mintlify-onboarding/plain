@@ -2,7 +2,7 @@ import { Callout, Tab, Tabs } from 'nextra-theme-docs';
 
 ## Logged-out chat
 
-This allows visitors of your website who are not logged-in to chat to you.
+This allows customers who are not logged-in to chat to you.
 
 <Tabs items={['React', 'Script tag']}>
     <Tab>
@@ -15,12 +15,14 @@ This allows visitors of your website who are not logged-in to chat to you.
         This package exports:
 
         - A `Chat` component which renders the Plain chat.
-        - A custom `usePlain` hook which exposes a function to log out and the number of unread messages for the customer.
+        - A custom `usePlain` hook which exposes: a function to log out and the number of unread messages for the customer
         - The `PlainProvider` which provides context for the `Chat` component and the `usePlain` hook.
 
-        To use the chat UI on your website, you need to wrap your app with `PlainProvider` and use the `Chat` component wherever you want to show the chat UI.
+        To use the chat UI on your website, you need to wrap your app with the `PlainProvider` and use the `Chat` component wherever you want to show the chat UI.
 
-        Unlike when using chat via the script tag — which automatically adds a floating chat bubble to your website — the `Chat` component will fill its parent. This means you have full flexibility in terms of **where** and **how** you want to show the chat.
+        <Callout type="warning">
+        Unlike when using chat via the script tag — which automatically adds a floating chat bubble to your website — the `Chat` component will fill its parent and is just the chat UI. This means you have full flexibility in terms of **where** and **how** you want to show the chat.
+        </Callout>
 
         A basic example would look like this:
 
@@ -62,8 +64,6 @@ This allows visitors of your website who are not logged-in to chat to you.
 
         Copy the full code fragment on that page and paste it in the page(s) you want the chat UI to show up.
 
-        ![Script tag](/images/chat-setup/chat-setup-7.png)
-
         If you need an example, this is a very minimal web page with Plain chat integrated. To use this, replace the text `APP_KEY` with the key you got in the [getting an app key](./app-key/) section.
 
         ```html filename="index.html" /APP_KEY/
@@ -89,7 +89,7 @@ This allows visitors of your website who are not logged-in to chat to you.
 
         Finally, go back to your workspace **Settings** → **Chat** and click "Enable chat".
 
-        If you don't need to support logged-in users, this is all you need to do! Your users will now be able to chat to you, and they will show up in your workspace in the [Support App](https://app.plain.com).
+        If you don't need to support logged-in users, this is all you need to do! Your users will now be able to chat to you, and they will show up in your workspace in the [Plain](https://app.plain.com).
 
         If your website has logged-in users, you can add [support for logged-in users](./logged-in/) in the next section.
     </Tab>

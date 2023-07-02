@@ -3,7 +3,7 @@ import { ImageContainer } from '../../components/imageContainer';
 
 # Creating a custom timeline entry
 
-In this recipe we'll be creating a refund timeline entry as seen in the screenshot:
+In this recipe, we'll be creating a refund timeline entry, as seen in the screenshot:
 
 <ImageContainer>
   ![A custom timeline entry in a customer's
@@ -12,11 +12,11 @@ In this recipe we'll be creating a refund timeline entry as seen in the screensh
 
 ## Getting started
 
-Before we make any API calls we first need to decide what we want the custom timeline entry to look like. You can use the [custom timeline entry playground](https://app.plain.com/developer/custom-timeline-entry-playground/) to prototype an entry.
+Before making any API calls, we need to decide what we want the custom timeline entry to look like. You can use the [custom timeline entry playground](https://app.plain.com/developer/custom-timeline-entry-playground/) to prototype an entry.
 
-In this example we'll use the "Refund processed" template but the full list of components that you can use in the custom timeline entry are documented in [Plain UI Components](/ui-components).
+In this example, we'll use the "Refund processed" template but the complete list of components that you can use in the custom timeline entry is documented in [Plain UI Components](/ui-components).
 
-We'll be using the `upsertCustomTimelineEntry` mutation which allows to create a new custom timeline entry or update one if it exists.
+We'll use the `upsertCustomTimelineEntry` mutation, which allows us to create a new custom timeline entry or update one if it exists.
 This mutation requires the following permissions:
 
 - `timeline:create`
@@ -24,18 +24,85 @@ This mutation requires the following permissions:
 
 ## Creating a custom timeline entry
 
+**This is important:** remember to replace `c_xxx` with an existing customer's id. You can get a customer ID by [upserting a customer](/customers-setup/upsert/)
+
 <Tabs items={["Typescript SDK", "GraphQL"]}>
 
     <Tab>
+    ```ts /c_xxx/
+    import { PlainClient } from '@team-plain/typescript-sdk';
 
+    const client = new PlainClient({
+        apiKey: 'plainApiKey_xxx',
+    });
+
+    const res = await client.upsertCustomTimelineEntry({
+        customerId: 'c_xxx',
+        title: 'Refund processed',
+        components: [
+            {
+                componentText: {
+                    text: 'Invoice **#1301** was refunded to customer',
+                },
+            },
+            {
+                componentSpacer: {
+                    spacerSize: 'XS',
+                },
+            },
+            {
+                componentText: {
+                    textSize: 'L',
+                    textColor: 'SUCCESS',
+                    text: '**+ $413.20**',
+                },
+            },
+            {
+                componentDivider: {
+                    spacingSize: 'M',
+                },
+            },
+            {
+                componentLinkButton: {
+                    url: 'https://stripe.com',
+                    label: 'View in Stripe',
+                },
+            },
+        ],
+    });
+
+    if (res.error) {
+        console.error(res.error);
+    } else {
+        console.log(res.data);
+    }
+    ```
+
+    Which will console.log:
+
+    ```js
+    {
+        result: 'CREATED',
+        timelineEntry: {
+            id: 't_01H4BKTDKC1KBXTD5GB3M2NJBZ',
+            customerId: 'c_01H418FYZWR7VZZG3MWBZQ0Q0Z',
+            timestamp: {
+                iso8601: '2023-07-02T15:33:54.924Z'
+            },
+            actor: {
+                __typename: 'MachineUserActor',
+                machineUserId: 'mu_01H04VKVPA1CBBZC059F6M33DB'
+            },
+            entry: {
+                __typename: 'CustomEntry'
+            }
+        }
+    }
+    ```
     </Tab>
 
     <Tab>
-        #### Mutation
-
-        The GraphQL mutation is the following:
-
-        ```graphql
+        ```graphql filename="Mutation"
         mutation upsertCustomTimelineEntry($input: UpsertCustomTimelineEntryInput!) {
             upsertCustomTimelineEntry(input: $input) {
                 result
@@ -67,14 +134,10 @@ This mutation requires the following permissions:
         }
         ```
 
-        #### Variables
-
-        **This is important:** remember to replace `c_XXXXXXXXXXXXXXXXXXXXXXXXXX` with an existing customer's id.
-
-        ```json5 {2}
+        ```json5 /c_xxx/ filename="Variables"
         {
             input: {
-                customerId: 'c_XXXXXXXXXXXXXXXXXXXXXXXXXX',
+                customerId: 'c_xxx',
                 title: 'Refund processed',
                 components: [
                     {
@@ -110,16 +173,14 @@ This mutation requires the following permissions:
         }
         ```
 
-        #### Response
-
-        ```json
+        ```json filename="Response"
         {
             "data": {
                 "upsertCustomTimelineEntry": {
                     "result": "CREATED",
                     "timelineEntry": {
                         "id": "t_01G9F4N117KW1VDPCFB8JSM5SF",
-                        "customerId": "c_01G8JNBQMCJ46JTR7FEB68HTN0",
+                        "customerId": "c_xxx",
                         "timestamp": {
                             "iso8601": "2022-08-02T11:21:58.055Z"
                         },
@@ -139,13 +200,13 @@ This mutation requires the following permissions:
 
 ## Side effects of custom timeline entries
 
-When upserting a custom timeline entry you can also optionally specify any side effects which allow you to control what happens after you create a new custom timeline entry.
+When upserting a custom timeline entry, you can also optionally specify any side effects which allow you to control what happens after you create a new custom timeline entry.
 
-This is to support different kinds of entries. For example when a significant error happens in your back-end, and you create a custom timeline entry, you might want to proactively reach out the customer. Alternatively if the customer just makes a change to their account you probably don't need to do anything.
+This is to support different kinds of entries. For example, when a significant error happens in your backend, and you create a custom timeline entry, you might want to proactively reach out to the customer. Alternatively, if the customer makes a change to their account, you probably don't need to do anything.
 
 #### `changeCustomerStatusToActive`
 
-If set to `true`, the customer's state will change to `ACTIVE` which will move them the Waiting for Help queue. A notification will be sent (depending on notification settings) exactly as if a customer got in touch like normal via email or chat.
+If set to `true`, the customer's state will change to `ACTIVE`, which will move them to the Waiting for Help queue. A notification will be sent (depending on notification settings) exactly as if a customer got in touch via email or chat.
 
 #### `sendCustomTimelineEntryCreatedNotification`
 
@@ -156,6 +217,3 @@ If set to `true`, a notification will be sent **to the user assigned to the cust
 It's perfectly valid to set both of these fields to `true` at the same time. If you do this, the customer's state will move to `ACTIVE` and a notification will be sent to the assigned user and/or every other user in the workspace.
 
 </Callout>
-
-If you have any problems, please get in touch with us by email on
-[help@plain.com](mailto:help@plain.com), and we will be happy to help.

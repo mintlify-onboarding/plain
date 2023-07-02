@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs';
 import React from 'react';
 
@@ -23,6 +24,10 @@ const config: DocsThemeConfig = {
 
   head: function useHead() {
     const { title } = useConfig();
+    const { asPath, defaultLocale, locale, basePath } = useRouter();
+    const domain = 'https://plain-docs-new.vercel.app';
+    const baseUrl = domain + basePath;
+    const url = baseUrl + (defaultLocale === locale ? asPath : `/${locale}${asPath}`);
 
     return (
       <>
@@ -30,23 +35,23 @@ const config: DocsThemeConfig = {
         <meta name="theme-color" content="#fff" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/sharing/social-card.png" />
+        <meta name="twitter:image" content="/docs/sharing/social-card.png" />
         <meta name="twitter:site:domain" content="plain.com" />
-        <meta name="twitter:url" content="https://plain.com" />
+        <meta name="twitter:url" content={url} />
         <meta name="og:title" content={title ? title + ' – Plain Docs' : 'Plain Docs'} />
-        <meta name="og:image" content="/sharing/social-card.png" />
+        <meta name="og:image" content={`${baseUrl}sharing/social-card.png`} />
         <meta name="apple-mobile-web-app-title" content="Plain Docs" />
-        <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/favicon/favicon.png" type="image/png" />
+        <link rel="icon" href={`${baseUrl}/favicon/favicon.svg`} type="image/svg+xml" />
+        <link rel="icon" href={`${baseUrl}/favicon/favicon.png`} type="image/png" />
         <link
           rel="icon"
-          href="/favicon/favicon-dark.svg"
+          href={`${baseUrl}/favicon/favicon-dark.svg`}
           type="image/svg+xml"
           media="(prefers-color-scheme: dark)"
         />
         <link
           rel="icon"
-          href="/favicon/favicon-dark.png"
+          href={`${baseUrl}/favicon/favicon-dark.png`}
           type="image/png"
           media="(prefers-color-scheme: dark)"
         />

@@ -5,8 +5,8 @@
     "href": "https://app.plain.com/developer/customer-cards-playground/",
     "newWindow": true
   },
-  "example-cards": {
-    "title": "Example cards",
+  "examples": {
+    "title": "Examples",
     "href": "https://github.com/team-plain/example-customer-cards",
     "newWindow": true
   }

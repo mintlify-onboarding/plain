@@ -7,8 +7,10 @@ Check out the [customer cards](/customer-cards) page for an overview.
 
 ## Protocol overview
 
-Customer cards are not proactively loaded, all of it is just-in-time and pulled when required.
+Customer Cards are not proactively loaded, all of it is just-in-time and pulled when required.
 This means that if your APIs are slow your users of the Support App will see a loading spinner while cards load.
+
+The protocol is as follows:
 
 1. When a user in Plain opens up a customer's page the cards are loaded.
 2. Plain's backend figures out which cards can be returned from the cache and which cards need to be loaded. On first

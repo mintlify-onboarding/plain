@@ -1,10 +1,10 @@
 import { ImageContainer } from '../components/imageContainer';
 
-# Customer cards
+# Customer Cards
 
-Customer cards are a powerful feature in Plain which let you show any information you want about a customer in Plain. This makes sure you always have important context when helping customers.
+Customer Cards are a powerful feature in Plain which let you show information from your own systems when looking at a customer in Plain. This makes sure you always have important context when helping customers.
 
-Customer cards are:
+Customer Cards are:
 
 - Pulled from your backend so you do not have to sync your customer data to Plain.
 - Short lived so that no data is permanently stored in Plain beyond the time frame you set.
@@ -28,7 +28,7 @@ At a high level this is how customer cards work:
 3. Your back-end responds with the JSON for each card
 4. Cards are shown to the user in Plain.
 
-Plain will send a request like the example below to your API based on your customer card config:
+Based on your customer card settings, Plain will send a request to your API like the below example:
 
 ```json
 {
@@ -77,14 +77,18 @@ Caching of customer cards is controlled via two properties:
 
 Any card that is past its expiry time will usually be deleted within a few minutes, but latest within 48 hours of it expiring.
 
+## Example cards
+
+To demo what you can build with Customer Cards we've built a number of examples you can view and which are open source.
+
+[**Customer Cards Examples →**](https://github.com/team-plain/example-customer-cards)
+
 ## Playground
 
-The [Customer Cards Playground](https://app.plain.com/developer/customer-cards-playground/) lets you build and preview the component JSON needed to create a customer card. Use this to prototype a customer card before starting to build your integration.
+The Customer Cards Playground lets you build and preview the component JSON needed to create a customer card. Use this to prototype a customer card before starting to build your integration.
 
-<ImageContainer>
-  ![Customer Cards Playground](/images/customer-cards/customer-cards-playground.png)
-</ImageContainer>
+[**Customer Cards Playground →**](https://app.plain.com/developer/customer-cards-playground/)
 
-## Customer cards vs. custom timeline entries
+## Customer Cards vs. Custom Timeline Entries
 
-Customer cards are used to add context to a customer's panel which is always visible. This is useful if the key information shown in customer cards is always relevant. If you want to show events that happened at a specific point in time, then using [Custom Timeline Entries](/custom-timeline-entries/) is more appropriate.
+Customer Cards are used to add context to a customer's panel which is always visible. This is useful if the key information shown in customer cards is always relevant. If you want to show events that happened at a specific point in time, then using [Custom Timeline Entries](/custom-timeline-entries/) is more appropriate.

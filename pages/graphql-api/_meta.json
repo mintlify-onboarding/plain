@@ -6,12 +6,12 @@
     "title": "Error codes"
   },
   "api-explorer": {
-    "title": "API Explorer",
+    "title": "API Explorer ↗",
     "href": "https://app.plain.com/developer/api-explorer/",
     "newWindow": true
   },
   "typescript-sdk": {
-    "title": "Typescript SDK",
+    "title": "Typescript SDK ↗",
     "href": "https://github.com/team-plain/typescript-sdk/",
     "newWindow": true
   }

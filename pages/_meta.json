@@ -17,5 +17,23 @@
   "webhooks": "Webhooks",
   "ui-components": "UI Components",
   "attachments": "Attachments",
-  "security": "Security"
+  "security": "Security",
+  "changelog": {
+    "title": "Changelog",
+    "type": "page",
+    "href": "https://journal.plain.com",
+    "newWindow": true
+  },
+  "journal": {
+    "title": "Journal",
+    "type": "page",
+    "href": "https://journal.plain.com",
+    "newWindow": true
+  },
+  "twitter": {
+    "title": "@plainsupport",
+    "type": "page",
+    "href": "https://twitter.com/plainsupport",
+    "newWindow": true
+  }
 }

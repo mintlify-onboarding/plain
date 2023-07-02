@@ -78,6 +78,10 @@ const config: DocsThemeConfig = {
       titleTemplate: '%s – Plain',
     };
   },
+
+  footer: {
+    text: <span>© Not Just Tickets Limited – {new Date().getFullYear()}</span>,
+  },
 };
 
 export default config;

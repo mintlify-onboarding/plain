@@ -1,10 +1,14 @@
 # Plain Documentation
 
-This is the documentation for Plain and its API.
+This is the documentation for Plain and its API which you can find here:
 
-It is built using [NextJS](https://nextjs.org/), [Nextra](https://nextra.site/) and [MDX](https://mdxjs.com/).
+[**plain.com/docs**](https://plain.com/docs)
 
-To read the docs head to [plain.com/docs](https://plain.com/docs)
+It is built using:
+
+- [NextJS](https://nextjs.org/)
+- [Nextra](https://nextra.site/)
+- [MDX](https://mdxjs.com/).
 
 ## Contributing
 

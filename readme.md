@@ -6,7 +6,7 @@ It is built using [NextJS](https://nextjs.org/), [Nextra](https://nextra.site/) 
 
 To read the docs head to [plain.com/docs](https://plain.com/docs)
 
-### Contributing
+## Contributing
 
 We use `pnpm` instead of npm which you can install following [these instructions](https://pnpm.io/installation).
 
@@ -14,7 +14,7 @@ First, run `pnpm i` to install the dependencies. Then, run `pnpm dev` to start t
 
 You can now edit any .mdx file and changes should live reload. If you run into any stale cache issues where your changes are not being reflected, try and delete the `.next` directory and then restart the dev server.
 
-### Stylistic/language choices
+There are some key language/style choices you should follow (and add to):
 
 - Key features are uppercased e.g. "Customer Cards" vs "customer cards"
 - Don't use loose or vary words for different groups of people such as visitor, person etc.

@@ -17,7 +17,6 @@ You can now edit any .mdx file and changes should live reload. If you run into a
 There are some key language/style choices you should follow (and add to):
 
 - Key features are uppercased e.g. "Customer Cards" vs "customer cards"
-- Don't use loose or vary words for different groups of people such as visitor, person etc.
+- Be consistent in which words are used for different groups of people:
   - When refering to people who are helped via Plain use the name "customer"
   - When refering to people who use Plain to help other people use the name "user"
-- Avoid 'easy', 'just' etc.

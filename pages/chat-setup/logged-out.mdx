@@ -2,7 +2,8 @@ import { Callout, Tab, Tabs } from 'nextra-theme-docs';
 
 ## Logged-out chat
 
-This allows customers who are not logged-in to chat to you.
+By default, chat requires your users to authenticate their email so we can securely present their details to you in Plain.
+Once you have chat set up, you can bypass email verification by [using your own site's authentication.](logged-in)
 
 <Tabs items={['React', 'Script tag']}>
     <Tab>
@@ -14,9 +15,9 @@ This allows customers who are not logged-in to chat to you.
 
         This package exports:
 
-        - A `Chat` component which renders the Plain chat.
+        - A `Chat` component that renders the Plain chat.
         - A custom `usePlain` hook which exposes: a function to log out and the number of unread messages for the customer
-        - The `PlainProvider` which provides context for the `Chat` component and the `usePlain` hook.
+        - The `PlainProvider` that provides context for the `Chat` component and the `usePlain` hook.
 
         To use the chat UI on your website, you need to wrap your app with the `PlainProvider` and use the `Chat` component wherever you want to show the chat UI.
 
@@ -31,7 +32,7 @@ This allows customers who are not logged-in to chat to you.
 
         import { PlainProvider, Chat } from '@team-plain/react-chat-ui';
 
-        function App() {
+        function PlainChat() {
             return (
                 <PlainProvider appKey="APP_KEY">
                     <h1>My App</h1>
@@ -39,8 +40,6 @@ This allows customers who are not logged-in to chat to you.
                 </PlainProvider>
             );
         }
-
-        ReactDOM.render(<App/>);
         ```
 
         Replace `APP_KEY` with your app key that you [created earlier](./app-key/), which should look something like `appKey_uk_01GG7XEXD24GQ20GWV7SYBS83X`.
@@ -54,17 +53,17 @@ This allows customers who are not logged-in to chat to you.
         To support logged-in users on your website, continue to the [support for logged-in users](./logged-in) page.
 
         <Callout emoji="🎨" type="info">
-            The React Chat UI can be customised with a custom theme. Check out
+            The React Chat UI can be customized with a custom theme. Check out
             how in the [theming](./theming) section.
         </Callout>
     </Tab>
 
     <Tab>
-        To integrate the chat script tag, click on your workspace name and go to **Settings** → **Chat**. If you have not created an app key yet, you'll be prompted to do it now. For help on how to do so take a look at the previous [getting an app key](./app-key/) page.
+        To find and integrate the chat script tag, click on your workspace name and go to **Settings** → **Chat**.
 
-        Copy the full code fragment on that page and paste it in the page(s) you want the chat UI to show up.
+        Select the app you [created earlier](./app-key/) and it will give you a code snippet (with your app key already included) to copy and paste into any page(s) you want the chat UI to show up.
 
-        If you need an example, this is a very minimal web page with Plain chat integrated. To use this, replace the text `APP_KEY` with the key you got in the [getting an app key](./app-key/) section.
+        This is an example of a very minimal web page with Plain chat integrated. If you copy this make sure to replace `APP_KEY` with the app key that you created earlier.
 
         ```html filename="index.html" /APP_KEY/
         <!DOCTYPE html>
@@ -89,7 +88,7 @@ This allows customers who are not logged-in to chat to you.
 
         Finally, go back to your workspace **Settings** → **Chat** and click "Enable chat".
 
-        If you don't need to support logged-in users, this is all you need to do! Your users will now be able to chat to you, and they will show up in your workspace in the [Plain](https://app.plain.com).
+        If you don't need to support logged-in users, this is all you need to do! Your users will now be able to chat with you, and they will show up in your workspace in the [Plain](https://app.plain.com).
 
         If your website has logged-in users, you can add [support for logged-in users](./logged-in/) in the next section.
     </Tab>

@@ -13,6 +13,6 @@ module.exports = withNextra({
         permanent: true,
         basePath: false,
       },
-    ]
+    ];
   },
 });

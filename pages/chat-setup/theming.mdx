@@ -1,14 +1,14 @@
-import { Tab, Tabs, Callout } from 'nextra-theme-docs';
+import { Callout, Tab, Tabs } from 'nextra-theme-docs';
 
 # Theming
 
-The chat UI can be customised to fit your branding. There are different ways to do this based on how you chose to
+The chat UI can be customized to fit your branding. There are different ways to do this based on how you chose to
 integrate the chat UI (script tag or npm package).
 
 <Tabs items={["React", "Script tag"]}>
 
     <Tab>
-        The `theme` prop in `PlainProvider` allows you to incrementally adopt a custom theme for your chat. Any values not provided by your custom theme will fall back to the `defaultTheme` which you can import from `@team-plain/react-chat-ui`.
+        The `theme` prop in `PlainProvider` allows you to incrementally adopt a custom theme for your chat. Any values not provided by your custom theme will fall back to the default theme.
 
         For those using Typescript, the type `ThemeConfig` is available from `@team-plain/react-chat-ui`.
 
@@ -39,7 +39,7 @@ integrate the chat UI (script tag or npm package).
         ```
 
         <Callout type="warning">
-        We are improving documentation on theming soon. If you would like help or are unsure if you're requirements are possible, please contact us at
+        We are improving documentation on theming. If you would like help or are unsure if your requirements are possible, please contact us at
         [help@plain.com](mailto:help@plain.com).
         </Callout>
     </Tab>

@@ -1,22 +1,26 @@
-import { Callout } from 'nextra-theme-docs';
+import { Tab, Tabs } from 'nextra-theme-docs';
 
 # Set up chat
 
-Chat can be great for teams who want to talk to their teams directly and quickly.
+Chat can be great for teams who want to talk to their customers quickly and directly on their own website.
 
-There are two ways to use chat with Plain: Using a **simple script tag** or using our **React chat library**.
+There are two ways to use chat with Plain: using our **React** package or using a **script tag**:
 
-### Option 1: Using a simple script tag
+<Tabs items={['React', 'Script tag']}>
+  <Tab>
+    This is great if you want to have more control over how chat works on your site. You can make the experience look and feel native to the rest of your site or even embed it as part of your own UI.
 
-This is great if you want to get going quickly and are not worried about customising the chat to fit your brand. This will give you the typical floating bubble experience common across many chat providers.
+    This is the most powerful way to integrate chat and **what we recommend** if you are using React.
 
-This is the easiest and simplest option to use chat.
+  </Tab>
 
-### Option 2: Using our React chat library
+  <Tab>
+    This option is if you want to get going quickly and don't want to customize the chat to fit your brand. This will give you the typical floating bubble experience common across many chat providers.
 
-This is great if you want to have more control over how chat works on your site. For example by making chat look and feel native to your app or by embeding it as part of your own UI.
+    This is the easiest and simplest option to integrate chat.
 
-This is the most powerful way to integrate chat and **what we recommend** if you are using React.
+  </Tab>
+</Tabs>
 
 ---
 

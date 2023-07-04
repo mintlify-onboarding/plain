@@ -1,6 +1,4 @@
-import { Callout } from 'nextra-theme-docs';
-
-# Timeline Entry Changed Event
+Timeline Entry Changed Event
 
 This is the most powerful and multi-purpose event in Plain.
 
@@ -8,17 +6,17 @@ This event is triggered whenever there is a change on a customer's timeline.
 
 In particular:
 
-- new emails (both inbound and outbound) and when they are updated (e.g. when they are marked as sent)
-- new notes
-- new chat messages (both inbound and outbound)
-- new issues
-- new Custom Timeline Entries
-- when a Custom Timeline Entry is updated
-- when the state of an issue changes
-- when a customer's status changes
-- when a customer's assignee changes
+- New emails (both inbound and outbound) and when they are updated (e.g. when they are marked as sent)
+- New notes
+- New chat messages (both inbound and outbound)
+- New issues
+- New Custom Timeline Entries
+- When a Custom Timeline Entry is updated
+- When the state of an issue changes
+- When a customer's status changes
+- When a customer's assignee changes
 
-In order to know what kind of change has occurred, you can inspect the `entry` field of the `timelineEntry` or `previousTimelineEntry` [object](https://json-schema.app/view/%23/%23%2Fdefinitions%2FtimelineEntryChangedPayload/%23%2Fdefinitions%2FtimelineEntry?url=https%3A%2F%2Fcore-api.uk.plain.com%2Fwebhooks%2Fschema.json). This field contains a `type` field which you can use to determine the type of the timeline entry.
+To know what kind of change has occurred, you can inspect the `entry` field of the `timelineEntry` or `previousTimelineEntry` [object](https://json-schema.app/view/%23/%23%2Fdefinitions%2FtimelineEntryChangedPayload/%23%2Fdefinitions%2FtimelineEntry?url=https%3A%2F%2Fcore-api.uk.plain.com%2Fwebhooks%2Fschema.json). This field contains a `type` field which you can use to determine the type of the timeline entry.
 
 The [`changeType`](https://json-schema.app/view/%23/%23%2Fdefinitions%2FtimelineEntryChangedPayload?url=https%3A%2F%2Fcore-api.uk.plain.com%2Fwebhooks%2Fschema.json) field allows you to know what kind of change has occurred. It can be one of the following:
 

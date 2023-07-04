@@ -47,15 +47,15 @@ Every `MutationError` has the following fields (assuming you included all these 
 - **type:** one of `VALIDATION`, `FORBIDDEN`, `INTERNAL`.
   - Where `VALIDATION` means input validation failed. See the fields for details on why the input was invalid.
   - Where `FORBIDDEN` means the user is not authorized to do this mutation. See `message` for details on which permissions are missing.
-  - Where `INTERNAL` means an unknown internal server error occured. Retry in this scenario and contact help@plain.com if the error persists.
+  - Where `INTERNAL` means an unknown internal server error occurred. Retry in this scenario and contact help@plain.com if the error persists.
 - **code:** a unique error code for each type of error returned. This code can be used to provide a localized or user-friendly error message. You can find the [list of error codes](/error-codes) documented.
 - **fields:** an array containing all the fields that errored
   - **field:** the name of the input field the error is for.
   - **message:** an English technical description of the error. This error is usually meant to be read by a developer and not an end user.
   - **type:** one of `VALIDATION`, `REQUIRED`, `NOT_FOUND`.
     - Where `VALIDATION` means the field was provided, but didn't pass the requirements of the field. See the `message` on the field for details on why.
-    - Where `REQUIRED` means he field is required. String inputs may be trimmed and checked for emptiness.
-    - Where `NOT_FOUND` means the input field referenced an entity that wasn't found. For example you tried to resolve an issue which doesn't exist/was deleted.
+    - Where `REQUIRED` means the field is required. String inputs may be trimmed and checked for emptiness.
+    - Where `NOT_FOUND` means the input field referenced an entity that wasn't found. For example, you tried to resolve an issue that doesn't exist/was deleted.
 
 ## Typescript SDK
 

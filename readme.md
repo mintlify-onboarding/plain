@@ -8,7 +8,7 @@ It is built using:
 
 - [NextJS](https://nextjs.org/)
 - [Nextra](https://nextra.site/)
-- [MDX](https://mdxjs.com/).
+- [MDX](https://mdxjs.com/)
 
 ## Contributing
 

@@ -25,7 +25,7 @@ jobs:
             v1-${{ runner.os }}-pnpm-build-
             v1-${{ runner.os }}-
       - name: Install pnpm
-        run: npm install -g pnpm@7
+        run: npm install -g pnpm@8
       - name: Install deps
         run: pnpm i
       - name: Lint

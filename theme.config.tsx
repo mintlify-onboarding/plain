@@ -41,17 +41,17 @@ const config: DocsThemeConfig = {
         <meta name="og:title" content={title ? title + ' – Plain Docs' : 'Plain Docs'} />
         <meta name="og:image" content={`${baseUrl}sharing/social-card.png`} />
         <meta name="apple-mobile-web-app-title" content="Plain Docs" />
-        <link rel="icon" href={`${baseUrl}/favicon/favicon.svg`} type="image/svg+xml" />
-        <link rel="icon" href={`${baseUrl}/favicon/favicon.png`} type="image/png" />
+        <link rel="icon" href={`${basePath}/favicon/favicon.svg`} type="image/svg+xml" />
+        <link rel="icon" href={`${basePath}/favicon/favicon.png`} type="image/png" />
         <link
           rel="icon"
-          href={`${baseUrl}/favicon/favicon-dark.svg`}
+          href={`${basePath}/favicon/favicon-dark.svg`}
           type="image/svg+xml"
           media="(prefers-color-scheme: dark)"
         />
         <link
           rel="icon"
-          href={`${baseUrl}/favicon/favicon-dark.png`}
+          href={`${basePath}/favicon/favicon-dark.png`}
           type="image/png"
           media="(prefers-color-scheme: dark)"
         />

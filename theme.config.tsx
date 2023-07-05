@@ -20,12 +20,12 @@ const config: DocsThemeConfig = {
   logo: <Logo />,
 
   // Used to generate the “Edit this page” link and the “feedback” links
-  docsRepositoryBase: 'https://github.com/team-plain/docs-new/tree/main',
+  docsRepositoryBase: 'https://github.com/team-plain/docs/tree/main',
 
   head: function useHead() {
     const { title } = useConfig();
     const { asPath, defaultLocale, locale, basePath } = useRouter();
-    const domain = 'https://plain-docs-new.vercel.app';
+    const domain = 'https://plain.com/docs';
     const baseUrl = domain + basePath;
     const url = baseUrl + (defaultLocale === locale ? asPath : `/${locale}${asPath}`);
 

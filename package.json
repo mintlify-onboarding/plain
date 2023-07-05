@@ -15,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/team-plain/docs-new.git"
+    "url": "git+https://github.com/team-plain/docs.git"
   },
   "bugs": {
-    "url": "https://github.com/team-plain/docs-new/issues"
+    "url": "https://github.com/team-plain/docs/issues"
   },
   "homepage": "https://docs.plain.com",
   "dependencies": {

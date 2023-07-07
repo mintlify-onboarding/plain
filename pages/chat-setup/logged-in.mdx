@@ -11,7 +11,7 @@ This guide will talk you through how to set up chat for customers who are logged
 
 To securely authenticate your customers, you have to sign a JWT with the customer's details. Plain's chat will then exchange your JWT for a session token from Plain. This is a security measure to prevent bad actors from impersonating your users via chat.
 
-There are two prerequisites before we are can configure chat to support logged-in users:
+There are two prerequisites before we can configure chat to support logged-in users:
 
 1. [Generating a key pair](#generate-key-pair)
 2. [Creating customer JWTs](#create-customer-jwt)
@@ -108,44 +108,44 @@ The JWT payload must conform to the following schema:
     <Tab>
     ```json
     {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "type": "object",
-    "properties": {
-        "fullName": {
-        "type": "string",
-        "description": "The customer full name"
-        },
-        "shortName": {
-        "type": "string",
-        "description": "The customer first name"
-        },
-        "email": {
-        "type": "object",
-        "properties": {
-            "email": {
-            "type": "string",
-            "description": "The customer email"
-            },
-            "isVerified": {
-            "type": "boolean",
-            "description": "Whether or not you have already established that the user has access to the email address they've provided you; for example if they've already verified their email on your app or website."
-            }
-        },
-        "required": [
-            "email",
-            "isVerified"
-        ]
-        },
-        "externalId": {
-        "type": "string",
-        "description": "Your customer's id in your own systems. This is what is used to identify customers. If Plain receives a customer with the same externalId as one we've seen before, we'll update any details that have changed. If not, we'll create a new customer."
-        }
-    },
-    "required": [
-        "fullName",
-        "email",
-        "externalId"
-    ]
+       "$schema":"https://json-schema.org/draft/2020-12/schema",
+       "type":"object",
+       "properties":{
+          "fullName":{
+             "type":"string",
+             "description":"The customer full name"
+          },
+          "shortName":{
+             "type":"string",
+             "description":"The customer first name"
+          },
+          "email":{
+             "type":"object",
+             "properties":{
+                "email":{
+                   "type":"string",
+                   "description":"The customer email"
+                },
+                "isVerified":{
+                   "type":"boolean",
+                   "description":"Whether or not you have already established that the user has access to the email address they've provided you; for example if they've already verified their email on your app or website."
+                }
+             },
+             "required":[
+                "email",
+                "isVerified"
+             ]
+          },
+          "externalId":{
+             "type":"string",
+             "description":"Your customer's id in your own systems. This is what is used to identify customers. If Plain receives a customer with the same externalId as one we've seen before, we'll update any details that have changed. If not, we'll create a new customer."
+          }
+       },
+       "required":[
+          "fullName",
+          "email",
+          "externalId"
+       ]
     }
     ```
     </Tab>

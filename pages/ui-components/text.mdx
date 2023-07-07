@@ -6,7 +6,7 @@ import { ImageContainer } from '../../components/imageContainer';
 
 The text component has the following properties:
 
-- `text`: the text
+- `text`: the text. Can include a subset of markdown (bold, italic, and links).
 - `textSize` (optional): one of `S`, `M`, `L`, defaults to `M`
 - `textColor` (optional): one of `NORMAL`, `MUTED`, `SUCCESS`, `WARNING`, `ERROR`, defaults to `NORMAL`
 
@@ -14,6 +14,11 @@ For example:
 
 ```json
 [
+  {
+    "componentText": {
+      "text": "The **quick** brown fox _jumps_ over the [lazy link](https://plain.com)"
+    }
+  },
   {
     "componentText": {
       "text": "Small text",

@@ -55,6 +55,7 @@ const config: DocsThemeConfig = {
           type="image/png"
           media="(prefers-color-scheme: dark)"
         />
+        <script defer data-domain="docs.plain.com" src="https://plausible.io/js/script.js"></script>
       </>
     );
   },

@@ -21,13 +21,13 @@
   "changelog": {
     "title": "Changelog",
     "type": "page",
-    "href": "https://journal.plain.com",
+    "href": "https://plain.com/changelog",
     "newWindow": true
   },
   "journal": {
-    "title": "Journal",
+    "title": "Blog",
     "type": "page",
-    "href": "https://journal.plain.com",
+    "href": "https://plain.com/blog",
     "newWindow": true
   },
   "twitter": {

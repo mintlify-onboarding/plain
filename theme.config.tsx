@@ -25,7 +25,7 @@ const config: DocsThemeConfig = {
   head: function useHead() {
     const { title } = useConfig();
     const { asPath, defaultLocale, locale, basePath } = useRouter();
-    const domain = 'https://plain.com/docs';
+    const domain = 'https://plain.com';
     const baseUrl = domain + basePath;
     const url = baseUrl + (defaultLocale === locale ? asPath : `/${locale}${asPath}`);
 

@@ -39,7 +39,7 @@ const config: DocsThemeConfig = {
         <meta name="twitter:site:domain" content="plain.com" />
         <meta name="twitter:url" content={url} />
         <meta name="og:title" content={title ? title + ' – Plain Docs' : 'Plain Docs'} />
-        <meta name="og:image" content={`${baseUrl}sharing/social-card.png`} />
+        <meta name="og:image" content={`${baseUrl}/sharing/social-card.png`} />
         <meta name="apple-mobile-web-app-title" content="Plain Docs" />
         <link rel="icon" href={`${basePath}/favicon/favicon.svg`} type="image/svg+xml" />
         <link rel="icon" href={`${basePath}/favicon/favicon.png`} type="image/png" />

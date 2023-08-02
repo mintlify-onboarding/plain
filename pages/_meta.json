@@ -5,7 +5,10 @@
     "title": "Guides"
   },
   "email-setup": "Set up email",
-  "chat-setup": "Set up chat",
+  "chat-setup": {
+    "title": "Set up chat",
+    "display": "hidden"
+  },
   "customers-setup": "Set-up customers",
   "customer-cards": "Customer Cards",
   "custom-timeline-entries": "Custom Timeline Entries",

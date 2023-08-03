@@ -14,10 +14,9 @@ At a high level to upload attachments you:
 
 ## Step by step guide
 
-To try this you will need an [API key](/graphql/authentication/) with the following permissions:
+To try this you will need an [API key](/graphql/authentication/) with the following permission:
 
-- `createAttachmentUploadUrl`: `attachment:create`
-- `createAttachmentDownloadUrl`: `attachment:download`
+- `attachment:create`
 
 <Steps>
     ### Creating an upload url
@@ -209,7 +208,9 @@ To try this you will need an [API key](/graphql/authentication/) with the follow
     - `uploadFormUrl`: The URL to which to upload the file to
     - `uploadFormData`: A list of key, value pairs that have to be included in the data we upload along with the actual file data.
 
-    Here is some example code showing how you would do this:
+    With this information we can now upload our actual file to Plain. To do this we need to build a form (`multipart/form-data`) with the data contained in `uploadFormData` and submit it to the `uploadFormUrl`.
+
+    Here is some example code showing how you would do this in the Browser and from a Node server:
 
     <Tabs items={['Browser', 'Node']}>
         <Tab>
@@ -266,6 +267,7 @@ To try this you will need an [API key](/graphql/authentication/) with the follow
                 uploadFormData.forEach(({ key, value }) => {
                     form.append(key, value);
                 });
+
                 form.append('file', fileBuffer, { filename: 'file' });
 
                 console.log(`Uploading attachment to ${uploadFormUrl}`);
@@ -291,37 +293,17 @@ To try this you will need an [API key](/graphql/authentication/) with the follow
         </Tab>
     </Tabs>
 
-
-
-    That's why when you request an upload URL, you get these two fields: `uploadFormUrl` and `uploadFormData`.
-
-    On your website you'd then need to:
-
-    1. Create a form that allows the user to select a file to upload
-    2. Call the `createAttachmentUploadUrl` mutation to create an upload URL and form fields
-    3. build the form data by using all the items in `uploadFormData` and the contents of the `file` input **(the file input needs to be at the end)**
-    4. submit the form to `uploadFormUrl`
-
-    Uploading attachments from a server is also possible. You need to build a form (`multipart/form-data`) with
-    the data contained in `uploadFormData` and submit it to `uploadFormUrl`.
-
-    Here is some example code on how to do this.
-
-    Alternatively, there are code snippets that you can use to upload the attachment with different programming
-    languages, environments or tools.
-
 </Steps>
 
 ## Limitations
 
 - The maximum file size for a single attachment is **6MB** (6 \* 10^6 bytes).
-- A **maximum of 25 attachments** can be added to a Custom Timeline Entry, a chat message or an email.
+- A **maximum of 25 attachments** can be added per Custom Timeline Entry, chat message or email.
 - The following file extensions are not allowed as attachments:
   `
 bat, bin, chm, com, cpl, crt, exe, hlp, hta, inf, ins, isp, jse, lnk, mdb, msc, msi, msp, mst, pcd, pif, reg, scr, sct, shs, vba, vbe, vbs, wsf, wsh, wsl`
 - Attachments uploaded, but never referenced by a Custom Timeline Entry, email, or chat message, will be
   **deleted after 24 hours**.
 - Upload URLs are only **valid for 2 hours** after which a new URL needs to be created.
-- Download URLs are only **valid for 3 minutes** after which a new URL needs to be created.
 
 ---

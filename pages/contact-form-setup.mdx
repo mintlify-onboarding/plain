@@ -1,0 +1,43 @@
+import { ImageContainer } from '../components/imageContainer';
+
+# Set up a contact form
+
+Contact forms are the best way to offer support at scale. With contact forms you can pre-triage every support request so that when you are in Plain you know exactly what to prioritize.
+
+Plain **does not** provide you with any UI components or a drop-in script tag. Instead, you use your own UI components and then use Plain's [Custom Timeline Entry](/custom-timeline-entries/documentation) API. This means you can offer a support experience which truly feels native to your product.
+
+When a contact form is submitted you can do different things depending on your desired behaviour.
+
+Typically you will want to:
+
+- [Upsert a customer](/customers-setup/upsert/) to get a customer id
+- Create a [Custom Timeline Entry](/custom-timeline-entries/documentation/) for the customer you just upserted
+- Open an issue so you know what everyone is getting in touch about and how urgent it is
+
+You can however also do other things as part of the form submission like for adding the [customer to a group](/customers-setup/customer-groups/) or assigning the customer to someone in your team.
+
+## Examples
+
+Contact forms can take any shape and be very specific to your product and customers. Here are just a few examples as starting points for you to then customise.
+
+### Example floating contact form
+
+This shows how you might build a very simple floating contact form (bottom right) in NextJS.
+
+[**View demo ↗**](https://example-nextjs-floating-form.vercel.app/) | [View source on Github↗](https://github.com/team-plain/example-nextjs-floating-form)
+
+<ImageContainer withBorder={true}>
+  ![Screenshot of the floating contact
+  form](/images/contact-forms/example-floating-contact-form.png)
+</ImageContainer>
+
+### Example advanced contact form
+
+This shows a much more advanced contact form in NextJS with structured inputs depending on the topic you are getting in touch about and categorisation.
+
+[**View demo ↗**](https://example-nextjs-advanced-contact-form.vercel.app/) | [View source on Github↗](https://github.com/team-plain/example-nextjs-advanced-contact-form)
+
+<ImageContainer>
+  ![Screenshot of the advanced contact
+  form](/images/contact-forms/example-advanced-contact-form.png)
+</ImageContainer>

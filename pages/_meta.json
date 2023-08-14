@@ -9,6 +9,9 @@
     "title": "Set up chat",
     "display": "hidden"
   },
+  "contact-form-setup": {
+    "title": "Set-up contact forms"
+  },
   "customers-setup": "Set-up customers",
   "customer-cards": "Customer Cards",
   "custom-timeline-entries": "Custom Timeline Entries",

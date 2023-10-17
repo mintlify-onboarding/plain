@@ -56,6 +56,11 @@ const config: DocsThemeConfig = {
           media="(prefers-color-scheme: dark)"
         />
         <script defer data-domain="plain.com" src="https://plausible.io/js/script.js"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `!function(t){if(window.ko)return;window.ko=[],["identify","track","removeListeners","open","on","off","qualify","ready"].forEach(function(t){ko[t]=function(){var n=[].slice.call(arguments);return n.unshift(t),ko.push(n),ko}});var n=document.createElement("script");n.async=!0,n.setAttribute("src","https://cdn.getkoala.com/v1/pk_1265b1eedbd2343a0237ec75da9ce61f9096/sdk.js"),(document.body || document.head).appendChild(n)}();`,
+          }}
+        />
       </>
     );
   },

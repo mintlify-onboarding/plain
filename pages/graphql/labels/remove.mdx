@@ -1,0 +1,24 @@
+import { Tab, Tabs } from 'nextra-theme-docs';
+import RemoveLabelsGraphQL from '../../../snippets/graphql/remove-labels.mdx';
+import RemoveLabelsTypescriptSDK from '../../../snippets/typescript-sdk/remove-labels.mdx';
+
+# Remove labels
+
+You can remove labels from a thread with a call to `removeLabels`. Label IDs for this call can be retrieved by fetching a thread with the API.
+
+This operation requires the following permissions:
+
+- `label:delete`
+
+<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
+    <Tab>
+        <RemoveLabelsTypescriptSDK />
+
+        A successful execution of this script would output `null`.
+    </Tab>
+
+    <Tab>
+        <RemoveLabelsGraphQL />
+    </Tab>
+
+</Tabs>

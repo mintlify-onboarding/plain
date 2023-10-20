@@ -1,0 +1,25 @@
+import { Callout } from 'nextra-theme-docs';
+import ThreadCreated from '../../snippets/webhooks/thread-created.mdx';
+
+# Thread created
+
+This event is fired when a new thread is created in your workspace.
+
+You can subscribe to this event **if you want to build an auto-responder**. To do so, when you receive this event, use the `replyToThread` mutation to send a reply back to the customer.
+
+<Callout type="warning" emoji="⚠️">
+  Every email you receive in your workspace is linked to a thread. If we cannot find a matching
+  thread for an email, we will create one. When this happens, you may receive two events:
+  `thread.thread_created` and [`thread.email_received`](/webhooks/email-received) (depending on your
+  webhook target event subscriptions). If you do, and you only care about emails which are not the
+  first message of the thread, please check the `isStartOfThread` in the
+  [`thread.email_received`](/webhooks/email-received) payload.
+</Callout>
+
+## Schema
+
+[**View JSON Schema →**](https://json-schema.app/view/%23%2Fdefinitions%2FthreadCreatedPayload?url=https%3A%2F%2Fcore-api.uk.plain.com%2Fwebhooks%2Fschema.json)
+
+Example:
+
+<ThreadCreated />

@@ -36,7 +36,6 @@
     "eslint-config-next": "13.4.4",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-mdx": "2.1.0",
-    "eslint-plugin-simple-import-sort": "10.0.0",
     "eslint-plugin-unused-imports": "2.0.0",
     "glob": "10.2.7",
     "prettier": "2.8.8",

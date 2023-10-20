@@ -1,19 +1,9 @@
-import { ImageContainer } from '../components/imageContainer';
+import CustomerCardBasicRequest from '../snippets/integrations/customer-cards/customer-cards-basic-request.mdx';
+import CustomerCardBasicResponse from '../snippets/integrations/customer-cards/customer-cards-basic-response.mdx';
 
 # Customer Cards
 
 Customer Cards are a powerful feature in Plain that let you show information from your own systems when looking at a customer in Plain. This makes sure you always have important context when helping customers.
-
-Customer Cards are:
-
-- Pulled from your backend so you do not have to sync your customer data to Plain.
-- Short-lived so that no data is permanently stored in Plain beyond the time frame you set.
-- Defined using a simple JSON schema, so you don't have to worry about styling them.
-- Automatically reloaded if a user is viewing a customer and the data expires.
-
-<ImageContainer>
-  ![Screenshot of the Customer Cards feature](/images/customer-cards/customer-cards-headline.png)
-</ImageContainer>
 
 ## How it works
 
@@ -28,41 +18,15 @@ Customer Cards are:
 
 Based on your Customer Card settings, Plain will send a request to your API like the below example:
 
-```json
-{
-  "cardKeys": ["plan-details"],
-  "customer": {
-    "email": "alex@grocery.co",
-    "externalId": "your_user_id_795BFCD5-130F-4E72-BD46-14F717BE0830"
-  }
-}
-```
+<CustomerCardBasicRequest />
 
 Your API should then reply with a list of cards matching the requested keys where each card contains the components you want to display:
 
-```json
-{
-  "cards": [
-    {
-      "key": "plan-details",
-      "timeToLiveSeconds": 86400,
-      "components": [
-        {
-          "componentText": {
-            "text": "Enterprise Tier"
-          }
-        }
-      ]
-    }
-  ]
-}
-```
+<CustomerCardBasicResponse />
 
 ## UI Components
 
-You can use the Plain UI components to define how your customer data should look.
-
-All the components are documented in the [Plain UI Components](/ui-components/) section.
+To define what each customer card should look like, you use the Plain UI components. All the components are documented in the [Plain UI Components](/ui-components/) section.
 
 You can find example Customer Cards and an example API you can check out [team-plain/example-customer-cards](https://github.com/team-plain/example-customer-cards). Feel free to try these out in your workspace!
 
@@ -86,7 +50,3 @@ To demonstrate what you can build with Customer Cards we've built some examples 
 The Customer Cards Playground lets you build and preview the component JSON needed to create a Customer Card. Use this to prototype a Customer Card before starting to build your integration.
 
 [**Customer Cards Playground →**](https://app.plain.com/developer/customer-cards-playground/)
-
-## Customer Cards vs. Custom Timeline Entries
-
-Customer Cards are used to add context to a customer's panel which is always visible. This is useful if the key information shown in Customer Cards is always relevant. If you want to show events that happened at a specific point in time, then using [Custom Timeline Entries](/custom-timeline-entries/) is more appropriate.

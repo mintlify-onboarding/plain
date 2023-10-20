@@ -1,0 +1,44 @@
+import { Tabs, Tab, Callout } from 'nextra-theme-docs';
+import { ImageContainer } from '../../../components/imageContainer';
+import CreateCustomerEventTypescript from '../../../snippets/typescript-sdk/create-customer-event.mdx';
+import CreateCustomerEventTypescriptResponse from '../../../snippets/typescript-sdk/create-customer-event-response.mdx';
+import CreateCustomerEventGraphQL from '../../../snippets/graphql/create-customer-event.mdx';
+
+# Create a customer event
+
+<Callout type="error" emoji="🚧">
+  This events API is being actively developed and is not yet ready for production usage. If you are interested in using events please get in touch with us at [help@plain.com](mailto:help@plain.com)
+
+</Callout>
+
+To create an event you need a customer ID.
+
+You can get this by [upserting a customer](/graphql/customers/upsert) in Plain or from data in webhooks or other API calls you made. If you want to just test this, you can press ⌘ + K on any thread and then "Copy customer ID" to get an ID you can experiment with.
+
+In this example we'll be creating the following event:
+
+<ImageContainer withBorder={true}>
+  ![Example event](/images/events/events-example.png)
+</ImageContainer>
+
+<Tabs items={['Typescript SDK', 'GraphQL']}>
+  <Tab>
+    For this you'll need an API key with the following permissions:
+    - `customerEvent:create`
+    - `customerEvent:read`
+    - `customer:read`
+
+    <CreateCustomerEventTypescript />
+    Which would console.log:
+    <CreateCustomerEventTypescriptResponse />
+
+  </Tab>
+  <Tab>
+    For this you'll need an API key with the following permissions:
+    - `customerEvent:create`
+    - `customerEvent:read`
+
+    <CreateCustomerEventGraphQL />
+
+  </Tab>
+</Tabs>

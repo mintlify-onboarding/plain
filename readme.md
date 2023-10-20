@@ -14,7 +14,7 @@ It is built using:
 
 We use `pnpm` instead of npm which you can install following [these instructions](https://pnpm.io/installation).
 
-First, run `pnpm i` to install the dependencies. Then, run `pnpm dev` to start the development server.
+First, run `pnpm i` to install the dependencies. Then, run `pnpm dev` to start the development server and go to [localhost:4100/docs](http://localhost:4100/docs).
 
 You can now edit any .mdx file and changes should live reload. If you run into any stale cache issues where your changes are not being reflected, try and delete the `.next` directory and then restart the dev server.
 

@@ -68,6 +68,7 @@ const config: DocsThemeConfig = {
   sidebar: {
     // Makes collapsible menus collapsed by default
     defaultMenuCollapseLevel: 1,
+    autoCollapse: true,
   },
 
   editLink: {

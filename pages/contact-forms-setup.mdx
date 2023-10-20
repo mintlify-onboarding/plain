@@ -1,0 +1,35 @@
+import { ImageContainer } from '../components/imageContainer';
+
+# Contact forms
+
+Contact forms are the best way to offer support at scale. With contact forms you can pre-triage every support request so that when you are in Plain you know exactly what to prioritize.
+
+Plain **does not** provide you with any UI components or a drop-in script tag. Instead, you use your own UI components and then use Plain's API.
+
+When a contact form is submitted you first [create the customer in Plain](/graphql/customers/upsert) and then [create a thread](/graphql/threads/create) in Plain.
+
+Depending on your desired behaviour you can also do other things as part of the form submission such as add the customer to the right group in Plain or set labels and priority on the thread. Contact forms can take any shape and be very specific to your product and customers.
+
+Here are just a few examples as starting points for you to then customise:
+
+### Example floating contact form
+
+This shows how you might build a very simple floating contact form (bottom right) in NextJS.
+
+[**View demo ↗**](https://example-nextjs-floating-form.vercel.app/) | [View source on Github↗](https://github.com/team-plain/example-nextjs-floating-form)
+
+<ImageContainer withBorder={true}>
+  ![Screenshot of the floating contact
+  form](/images/contact-forms/example-floating-contact-form.png)
+</ImageContainer>
+
+### Example advanced contact form
+
+This shows a much more advanced contact form in NextJS with structured inputs depending on the topic you are getting in touch about and categorisation.
+
+[**View demo ↗**](https://example-nextjs-advanced-contact-form.vercel.app/) | [View source on Github↗](https://github.com/team-plain/example-nextjs-advanced-contact-form)
+
+<ImageContainer>
+  ![Screenshot of the advanced contact
+  form](/images/contact-forms/example-advanced-contact-form.png)
+</ImageContainer>

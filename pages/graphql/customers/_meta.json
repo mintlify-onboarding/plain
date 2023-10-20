@@ -1,0 +1,6 @@
+{
+  "get": "Fetch customers",
+  "upsert": "Create & update customers",
+  "delete": "Delete customers",
+  "customer-groups": "Customer groups"
+}

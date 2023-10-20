@@ -4,15 +4,15 @@ import { Callout } from 'nextra-theme-docs';
 
 Webhooks allow you to get notified about events happening in your Plain workspace. You can react to these events in many ways, such as:
 
-- Assigning customers to users based on business requirements (urgency, customer value, recurrency, etc.)
+- Assigning threads to users based on business requirements (urgency, customer value, recurrency, etc.)
 - Creating an AI-powered auto-responder
-- Creating issues for customers based on their messages
+- Categorising threads by adding labels based on the their content
 - Triggering internal incidents (by identifying patterns in inbound messages)
 - Tracking metrics from your customer support team
 
 ## Receiving events from Plain
 
-Plain events are delivered as Webhook requests.
+Events happening in your workspace ('Plain events') are delivered as Webhook requests.
 
 In order to receive webhook requests, you need a **publicly available HTTPS** endpoint. Plain will make
 an `HTTP POST` request to this endpoint whenever an event you are interested in occurs.
@@ -20,7 +20,7 @@ an `HTTP POST` request to this endpoint whenever an event you are interested in 
 Once your endpoint is ready, you may create a _webhook target_ in Plain. A webhook target tells Plain what events you
 are interested in and where to send those events.
 
-You can create it by going to **Settings** → **Webhooks**, then clicking on 'Add webhook target'
+You can create it by going to **Settings** → **Webhooks**, then clicking on '+ Add webhook target'
 
 Then, you need to choose a name (e.g. 'Customer notifications'), the URL of your webhook endpoint, the events you want
 to receive and whether you want to enable it straight away.
@@ -43,7 +43,7 @@ You can create up to **25 webhook targets** per workspace.
 
 Webhook requests are always sent through HTTPS.
 
-If you want you can include authentication credentials in the URL (`https://username:password@example.com`) which will then be sent along the webhook request in an `Authorization` header:
+If you want, you can include basic authentication credentials in your webhook target's URL (`https://username:password@example.com`) which will then be sent along the webhook request in an `Authorization` header:
 
 ```text
 Authorization: Basic cGxhaW46cm9ja3M=

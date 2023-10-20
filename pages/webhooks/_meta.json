@@ -1,6 +1,11 @@
 {
-  "customer-status-transitioned": "Customer status transitioned",
-  "customer-changed": "Customer changed",
-  "timeline-entry-changed": "Timeline entry changed",
-  "customer-group-membership-changed": "Customer group membership changed"
+  "thread-created": "Thread created",
+  "thread-status-transitioned": "Thread status transitioned",
+  "thread-assignment-transitioned": "Thread assignment transitioned",
+  "email-received": "Email received",
+  "email-sent": "Email sent",
+  "thread-labels-changed": "Thread labels changed",
+  "customer-created": "Customer created",
+  "customer-updated": "Customer updated",
+  "customer-deleted": "Customer deleted"
 }

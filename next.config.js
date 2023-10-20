@@ -11,8 +11,8 @@ module.exports = withNextra({
   async redirects() {
     return [
       {
-        source: '/',
-        destination: '/docs',
+        source: '/docs',
+        destination: '/docs/introduction',
         permanent: true,
         basePath: false,
       },

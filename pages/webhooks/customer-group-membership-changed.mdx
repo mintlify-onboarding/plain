@@ -1,6 +1,8 @@
+import CustomerGroupChanged from '../../snippets/webhooks/customer-group-changed.mdx';
+
 # Customer Group Membership Changed Event
 
-This event is fired whenever a customer is added or removed from a customer group. This can be useful if you want to do something in other systems when a customer is added to a group in the Plain Support App.
+This event is fired whenever a customer is added or removed from a customer group.
 
 The [`changeType`](https://json-schema.app/view/%23%2Fdefinitions%2FcustomerGroupMembershipsChangedPayload?url=https%3A%2F%2Fcore-api.uk.plain.com%2Fwebhooks%2Fschema.json) field allows you to know what kind of change has occurred. It can be one of the following:
 
@@ -13,80 +15,4 @@ The [`changeType`](https://json-schema.app/view/%23%2Fdefinitions%2FcustomerGrou
 
 Example:
 
-```json
-{
-  "timestamp": "2023-02-21T12:58:51.232Z",
-  "workspaceId": "w_01GST0W989ZNAW53X6XYHAY87P",
-  "payload": {
-    "eventType": "customer.customer_groups_memberships_canged",
-    "changeType": "ADDED",
-    "previousCustomerGroupMemberships": [],
-    "customerGroupMemberships": [
-      {
-        "customerId": "c_01GST0WAGQ7RSMMEXZGA360MFY",
-        "customerGroupId": "cg_01GST0W9Z0WVHBSAPA9HQR7Q2E",
-        "workspaceId": "w_01GST0W989ZNAW53X6XYHAY87P",
-        "customerGroup": {
-          "id": "cg_01GST0W9Z0WVHBSAPA9HQR7Q2E",
-          "name": "Enterprise",
-          "key": "enterprise",
-          "color": "#000000",
-          "createdAt": "2023-02-21T12:58:50.775Z",
-          "createdBy": {
-            "actorType": "user",
-            "userId": "u_01GST0W90RKD7AXS783SDPKJMV"
-          },
-          "updatedAt": "2023-02-21T12:58:50.775Z",
-          "updatedBy": {
-            "actorType": "user",
-            "userId": "u_01GST0W90RKD7AXS783SDPKJMV"
-          }
-        },
-        "createdAt": "2023-02-21T12:58:50.775Z",
-        "createdBy": {
-          "actorType": "user",
-          "userId": "u_01GST0W90RKD7AXS783SDPKJMV"
-        },
-        "updatedAt": "2023-02-21T12:58:50.775Z",
-        "updatedBy": {
-          "actorType": "user",
-          "userId": "u_01GST0W90RKD7AXS783SDPKJMV"
-        }
-      }
-    ],
-    "customer": {
-      "id": "c_01GST0WAGQ7RSMMEXZGA360MFY",
-      "email": {
-        "isVerified": false,
-        "email": "colby45@example.com",
-        "verifiedAt": null
-      },
-      "externalId": "external_01GST0WAFACKR7NA5BH60W9RWA",
-      "fullName": "Colby Kunde",
-      "shortName": "Colby",
-      "assignedAt": null,
-      "assignedToUser": null,
-      "status": "ACTIVE",
-      "statusChangedAt": "2023-02-21T12:58:51.112Z",
-      "createdAt": "2023-02-21T12:58:50.775Z",
-      "createdBy": {
-        "actorType": "user",
-        "userId": "u_01GST0W90RKD7AXS783SDPKJMV"
-      },
-      "updatedAt": "2023-02-21T12:58:51.112Z",
-      "updatedBy": {
-        "actorType": "user",
-        "userId": "u_01GST0W90RKD7AXS783SDPKJMV"
-      }
-    }
-  },
-  "id": "pEv_01GST0WAZ0W31PN3BH76M9E2SP",
-  "webhookMetadata": {
-    "webhookTargetId": "whTarget_01GST0W9X0WVHBSAPA9HQR7Q2E",
-    "webhookDeliveryAttemptId": "whAttempt_01GST0WBEHV132SN0W17CHKF6S",
-    "webhookDeliveryAttemptNumber": 1,
-    "webhookDeliveryAttemptTimestamp": "2023-02-21T12:58:51.729Z"
-  },
-  "type": "customer.customer_groups_memberships_canged"
-}
-```
+<CustomerGroupChanged />

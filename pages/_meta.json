@@ -1,29 +1,34 @@
 {
-  "index": "Introduction",
-  "-- Guides": {
+  "introduction": "Introduction",
+
+  "-- Getting started": {
     "type": "separator",
-    "title": "Guides"
+    "title": "Getting started"
   },
-  "email-setup": "Set up email",
-  "chat-setup": {
-    "title": "Set up chat",
-    "display": "hidden"
-  },
-  "contact-form-setup": {
-    "title": "Set-up contact forms"
-  },
-  "customers-setup": "Set-up customers",
-  "customer-cards": "Customer Cards",
-  "custom-timeline-entries": "Custom Timeline Entries",
+  "email-setup": "Email",
+  "labels-setup": "Labels",
+  "linear-integration-setup": "Linear integration",
+  "contact-forms-setup": "Contact forms",
+  "customer-cards-setup": "Customer Cards",
+  "events-setup": "Events",
+
   "-- Reference": {
     "type": "separator",
     "title": "Reference"
   },
-  "graphql-api": "GraphQL API",
+  "graphql": "GraphQL API",
+  "customer-cards": "Customer Cards",
   "webhooks": "Webhooks",
   "ui-components": "UI Components",
   "attachments": "Attachments",
   "security": "Security",
+
+  "-- Migration": {
+    "type": "separator"
+  },
+
+  "migrate-to-threads": "Migrating to threads",
+
   "changelog": {
     "title": "Changelog",
     "type": "page",

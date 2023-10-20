@@ -17,6 +17,7 @@ const cssModuleFiles = /[a-zA-Z]+\.module\.css/g;
 const pageRegex = /pages\/[a-z-\/]+\.mdx/g;
 const pageMetaRegex = /pages\/[a-z-\/]*_meta\.json/g;
 const imageRegex = /public\/[a-z-/0-9]+\.(png|svg|ico|jpeg|jpg)/g;
+const snippetRegex = /snippets\/[a-z-\/]+\.mdx/g;
 
 async function lint() {
   const errors = [];
@@ -25,7 +26,14 @@ async function lint() {
   console.log(`👉 Linting ${allFiles.length} files.`);
 
   allFiles.forEach((file) => {
-    const allowedPatterns = [pageRegex, pageMetaRegex, imageRegex, codeFile, cssModuleFiles];
+    const allowedPatterns = [
+      pageRegex,
+      snippetRegex,
+      pageMetaRegex,
+      imageRegex,
+      codeFile,
+      cssModuleFiles,
+    ];
 
     const isException = exceptions.includes(file);
 

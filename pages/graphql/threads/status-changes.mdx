@@ -10,9 +10,9 @@ import MarkThreadAsTodoGraphQl from '../../../snippets/graphql/mark-thread-as-to
 
 Threads can be in one of 3 statuses:
 
-- Todo
-- Snoozed
-- Done
+- `Todo`
+- `Snoozed`
+- `Done`
 
 When you log into Plain you can filter threads by these statuses.
 
@@ -25,9 +25,9 @@ To change a threads status you need an API key with the following permissions:
 
 ### Mark thread as done
 
-When any activity happens in a thread, it will move back to **Todo**.
+When any activity happens in a thread, it will move back to `Todo`.
 
-Unlike traditional ticketing software, we expect a ticket to move between Todo and Done a number of times in the course of helping a customer. This will not break or influence any metrics. Dones is really more to say "I'm done for now, there is nothing left for me to do".
+Unlike traditional ticketing software, we expect a ticket to move between `Todo` and `Done` a number of times in the course of helping a customer. This will not break or influence any metrics. `Done` in Plain means "I'm done for now, there is nothing left for me to do".
 
 <Tabs items={['Typescript SDK', 'GraphQL']}>
   <Tab>

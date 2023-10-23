@@ -1,4 +1,7 @@
 import { ImageContainer } from '../../components/imageContainer';
+import { Tab, Tabs } from 'nextra-theme-docs';
+import UICopyButtonTypescriptSDK from '../../snippets/typescript-sdk/ui-copy-button.mdx';
+import UICopyButtonGraphQL from '../../snippets/graphql/ui-copy-button.mdx';
 
 # CopyButton
 
@@ -16,11 +19,13 @@ A copy button has the following properties:
 
 For example:
 
-```json
-{
-  "componentCopyButton": {
-    "copyButtonTooltipLabel": "Order ID",
-    "copyButtonValue": "2a8f2dae-3580-402b-aa0a-243efae55e39"
-  }
-}
-```
+<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
+    <Tab>
+        <UICopyButtonTypescriptSDK />
+    </Tab>
+
+    <Tab>
+        <UICopyButtonGraphQL />
+    </Tab>
+
+</Tabs>

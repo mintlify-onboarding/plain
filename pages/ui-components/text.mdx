@@ -1,4 +1,7 @@
 import { ImageContainer } from '../../components/imageContainer';
+import { Tab, Tabs } from 'nextra-theme-docs';
+import UITextTypescriptSDK from '../../snippets/typescript-sdk/ui-text.mdx';
+import UITextGraphQL from '../../snippets/graphql/ui-text.mdx';
 
 # Text
 
@@ -12,60 +15,13 @@ The text component has the following properties:
 
 For example:
 
-```json
-[
-  {
-    "componentText": {
-      "text": "The **quick** brown fox _jumps_ over the [lazy link](https://plain.com)"
-    }
-  },
-  {
-    "componentText": {
-      "text": "Small text",
-      "textSize": "S"
-    }
-  },
-  {
-    "componentText": {
-      "text": "Medium text",
-      "textSize": "M"
-    }
-  },
-  {
-    "componentText": {
-      "text": "Large text",
-      "textSize": "L"
-    }
-  },
-  {
-    "componentText": {
-      "text": "Normal text",
-      "textColor": "NORMAL"
-    }
-  },
-  {
-    "componentText": {
-      "text": "Muted text",
-      "textColor": "MUTED"
-    }
-  },
-  {
-    "componentText": {
-      "text": "Success text",
-      "textColor": "SUCCESS"
-    }
-  },
-  {
-    "componentText": {
-      "text": "Warning text",
-      "textColor": "WARNING"
-    }
-  },
-  {
-    "componentText": {
-      "text": "Error text",
-      "textColor": "ERROR"
-    }
-  }
-]
-```
+<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
+    <Tab>
+        <UITextTypescriptSDK />
+    </Tab>
+
+    <Tab>
+        <UITextGraphQL />
+    </Tab>
+
+</Tabs>

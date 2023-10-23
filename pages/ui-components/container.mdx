@@ -1,4 +1,7 @@
 import { ImageContainer } from '../../components/imageContainer';
+import { Tab, Tabs } from 'nextra-theme-docs';
+import UIContainerTypescriptSDK from '../../snippets/typescript-sdk/ui-container.mdx';
+import UIContainerGraphQL from '../../snippets/graphql/ui-container.mdx';
 
 # Container
 
@@ -25,16 +28,13 @@ Allowed components within a Container are:
 
 For example:
 
-```json
-{
-  "componentContainer": {
-    "containerContent": [
-      {
-        "componentText": {
-          "text": "Container content"
-        }
-      }
-    ]
-  }
-}
-```
+<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
+    <Tab>
+        <UIContainerTypescriptSDK />
+    </Tab>
+
+    <Tab>
+        <UIContainerGraphQL />
+    </Tab>
+
+</Tabs>

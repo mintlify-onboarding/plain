@@ -1,4 +1,7 @@
 import { ImageContainer } from '../../components/imageContainer';
+import { Tab, Tabs } from 'nextra-theme-docs';
+import UIDividerTypescriptSDK from '../../snippets/typescript-sdk/ui-divider.mdx';
+import UIDividerGraphQL from '../../snippets/graphql/ui-divider.mdx';
 
 # Divider
 
@@ -15,22 +18,13 @@ A divider has the following properties:
 
 For example:
 
-```json {7-11}
-[
-  {
-    "componentText": {
-      "text": "Content before an XS divider"
-    }
-  },
-  {
-    "componentDivider": {
-      "dividerSpacingSize": "XS"
-    }
-  },
-  {
-    "componentText": {
-      "text": "Content before an S divider"
-    }
-  }
-]
-```
+<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
+    <Tab>
+        <UIDividerTypescriptSDK />
+    </Tab>
+
+    <Tab>
+        <UIDividerGraphQL />
+    </Tab>
+
+</Tabs>

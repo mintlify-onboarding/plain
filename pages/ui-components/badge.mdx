@@ -1,4 +1,7 @@
 import { ImageContainer } from '../../components/imageContainer';
+import { Tab, Tabs } from 'nextra-theme-docs';
+import UIBadgeTypescriptSDK from '../../snippets/typescript-sdk/ui-badge.mdx';
+import UIBadgeGraphQL from '../../snippets/graphql/ui-badge.mdx';
 
 # Badge
 
@@ -15,11 +18,13 @@ A badge has the following properties:
 
 For example:
 
-```json
-{
-  "componentBadge": {
-    "badgeLabel": "Subscribed",
-    "badgeColor": "GREEN"
-  }
-}
-```
+<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
+    <Tab>
+        <UIBadgeTypescriptSDK />
+    </Tab>
+
+    <Tab>
+        <UIBadgeGraphQL />
+    </Tab>
+
+</Tabs>

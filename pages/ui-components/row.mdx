@@ -1,4 +1,7 @@
 import { ImageContainer } from '../../components/imageContainer';
+import { Tab, Tabs } from 'nextra-theme-docs';
+import UIRowTypescriptSDK from '../../snippets/typescript-sdk/ui-row.mdx';
+import UIRowGraphQL from '../../snippets/graphql/ui-row.mdx';
 
 # Row
 
@@ -23,24 +26,13 @@ The following components can be used in a row:
 
 For example:
 
-```json
-{
-  "componentRow": {
-    "rowMainContent": [
-      {
-        "componentText": {
-          "text": "Membership"
-        }
-      }
-    ],
-    "rowAsideContent": [
-      {
-        "componentBadge": {
-          "badgeLabel": "Premium plan",
-          "badgeColor": "BLUE"
-        }
-      }
-    ]
-  }
-}
-```
+<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
+    <Tab>
+        <UIRowTypescriptSDK />
+    </Tab>
+
+    <Tab>
+        <UIRowGraphQL />
+    </Tab>
+
+</Tabs>

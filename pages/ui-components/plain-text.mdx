@@ -1,4 +1,7 @@
 import { ImageContainer } from '../../components/imageContainer';
+import { Tab, Tabs } from 'nextra-theme-docs';
+import UIPlainTextTypescriptSDK from '../../snippets/typescript-sdk/ui-plain-text.mdx';
+import UIPlainTextGraphQL from '../../snippets/graphql/ui-plain-text.mdx';
 
 # PlainText
 
@@ -16,55 +19,13 @@ The plain text component has the following properties:
 
 For example:
 
-```json
-[
-  {
-    "componentPlainText": {
-      "plainText": "Small text",
-      "plainTextSize": "S"
-    }
-  },
-  {
-    "componentPlainText": {
-      "plainText": "Medium text",
-      "plainTextSize": "M"
-    }
-  },
-  {
-    "componentPlainText": {
-      "plainText": "Large text",
-      "plainTextSize": "L"
-    }
-  },
-  {
-    "componentPlainText": {
-      "plainText": "Normal text",
-      "plainTextColor": "NORMAL"
-    }
-  },
-  {
-    "componentPlainText": {
-      "plainText": "Muted text",
-      "plainTextColor": "MUTED"
-    }
-  },
-  {
-    "componentPlainText": {
-      "plainText": "Success text",
-      "plainTextColor": "SUCCESS"
-    }
-  },
-  {
-    "componentPlainText": {
-      "plainText": "Warning text",
-      "plainTextColor": "WARNING"
-    }
-  },
-  {
-    "componentPlainText": {
-      "plainText": "Error text",
-      "plainTextColor": "ERROR"
-    }
-  }
-]
-```
+<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
+    <Tab>
+        <UIPlainTextTypescriptSDK />
+    </Tab>
+
+    <Tab>
+        <UIPlainTextGraphQL />
+    </Tab>
+
+</Tabs>

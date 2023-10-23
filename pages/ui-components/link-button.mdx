@@ -1,4 +1,7 @@
 import { ImageContainer } from '../../components/imageContainer';
+import { Tab, Tabs } from 'nextra-theme-docs';
+import UILinkButtonTypescriptSDK from '../../snippets/typescript-sdk/ui-link-button.mdx';
+import UILinkButtonGraphQL from '../../snippets/graphql/ui-link-button.mdx';
 
 # LinkButton
 
@@ -15,11 +18,13 @@ A link button has the following properties:
 
 For example:
 
-```json
-{
-  "componentLinkButton": {
-    "linkButtonLabel": "Open in Admin Portal",
-    "linkButtonUrl": "https://example.com"
-  }
-}
-```
+<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
+    <Tab>
+        <UILinkButtonTypescriptSDK />
+    </Tab>
+
+    <Tab>
+        <UILinkButtonGraphQL />
+    </Tab>
+
+</Tabs>

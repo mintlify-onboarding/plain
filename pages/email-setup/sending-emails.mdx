@@ -1,16 +1,12 @@
-import { Tab, Tabs } from 'nextra-theme-docs';
-
-import { ImageContainer } from '../../components/imageContainer';
-
-# Sending emails from Plain
-
-To be able to send emails from Plain using your support email
-address, you will need to add a couple of DNS records to your domain.
+---
+title: "Sending emails from Plain"
+description: "To be able to send emails from Plain using your support email address, you will need to add a couple of DNS records to your domain."
+---
 
 While setting up your email, you will see DNS settings that need to be
 configured for your domain:
 
-<ImageContainer>![DNS settings](/images/email-setup/email-setup-4.png)</ImageContainer>
+![DNS settings](public/images/email-setup/email-setup-4.png)
 
 The first record is the "DKIM". It is part of the available mechanisms that exist to authenticate
 emails: verifying that you're the actual sender of the email.
@@ -24,9 +20,9 @@ and do not end up in the spam folder.
 Adding these to your DNS records varies slightly among different
 providers. Here is how to do so for some common hosting providers:
 
-<Tabs items={['DNSimple', 'Google Domains',  'Namecheap', 'GoDaddy']}>
+<Tabs>
 
-    <Tab>
+    <Tab title="DNSimple">
         1. Go to [https://dnsimple.com/dashboard](https://dnsimple.com/dashboard).
         2. Click on the domain you need to update. If your support address is
         `help@example.com` you must pick `example.com`.
@@ -44,7 +40,7 @@ providers. Here is how to do so for some common hosting providers:
         8. Click "Add record" to save.
     </Tab>
 
-    <Tab>
+    <Tab title="Google Domains">
         1. Go to [https://domains.google.com/registrar/](https://domains.google.com/registrar/).
         2. Choose the domain you need to update. If your support address is `help@example.com`
         you must pick `example.com`. Click on "Manage".
@@ -65,7 +61,7 @@ providers. Here is how to do so for some common hosting providers:
 
 
 
-    <Tab>
+    <Tab title="Namecheap">
         1. Go to [https://ap.www.namecheap.com/domains/list/](https://ap.www.namecheap.com/domains/list/).
         2. Pick your domain and click on "Manage".
         3. Click on the "Advanced DNS" tab.
@@ -80,7 +76,7 @@ providers. Here is how to do so for some common hosting providers:
         6. Click on "Save all changes" to save.
     </Tab>
 
-    <Tab>
+    <Tab title="GoDaddy">
         1. Go to [https://account.godaddy.com/products](https://account.godaddy.com/products)
         2. Pick your domain and click on "DNS".
         3. Click on "Add" and add the following:

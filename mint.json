@@ -4,7 +4,7 @@
       "light": "/public/logo/light.png",
       "dark": "public/logo/dark.png"
     },
-    "favicon": "/public/favicon/favicon-dark.svg",
+    "favicon": "/public/favicon/favicon.png",
     "colors": {
       "primary": "#0E0E0E",
       "light": "#FAFAFA",
@@ -23,7 +23,7 @@
       {
         "name": "Support",
         "icon": "headset",
-        "url": "help@plain.com"
+        "url": "mailto:help@plain.com"
       },
       {
         "name": "Privacy Policy",
@@ -35,6 +35,97 @@
       {
         "group": "Welcome to Plain",
         "pages": ["pages/introduction"]
+      },
+      {
+        "group": "Getting Started",
+        "pages": [
+          {
+            "group": "Email",
+            "pages": [
+              "pages/email-setup",
+              "pages/email-setup/receiving-emails",
+              "pages/email-setup/sending-emails"
+            ]
+          },
+          "pages/labels-setup",
+          "pages/linear-integration-setup",
+          "pages/contact-forms-setup",
+          "pages/customer-cards-setup",
+          "pages/events-setup"
+        ]
+      },
+      {
+        "group": "Reference",
+        "pages": [
+          {
+            "group": "GraphQL API",
+            "pages": [
+              "pages/graphql",
+              "pages/graphql/authentication",
+              "pages/graphql/schema",
+              {
+                "group": "Customers",
+                "pages": [
+                  "pages/graphql/customers",
+                  "pages/graphql/customers/get",
+                  "pages/graphql/customers/upsert",
+                  "pages/graphql/customers/delete",
+                  "pages/graphql/customers/customer-groups"
+                ]
+              },
+                            {
+                "group": "Events",
+                "pages": [
+                "pages/graphql/events",
+                "pages/graphql/events/create-customer-event"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Customer Cards",
+            "pages": [
+              "pages/customer-cards-setup",
+              "pages/customer-cards/documentation",
+              "pages/customer-cards/playground",
+              "pages/customer-cards/examples"
+            ]
+          },
+          {
+            "group": "Webhooks",
+            "pages": [
+              "pages/webhooks",
+              "pages/webhooks/thread-created",
+              "pages/webhooks/thread-status-transitioned",
+              "pages/webhooks/thread-assignment-transitioned",
+              "pages/webhooks/email-received",
+              "pages/webhooks/email-sent",
+              "pages/webhooks/thread-labels-changed",
+              "pages/webhooks/customer-created",
+              "pages/webhooks/customer-updated",
+              "pages/webhooks/customer-deleted",
+              "pages/webhooks/customer-group-membership-changed",
+              "pages/webhooks/thread-priority-changed"
+            ]
+          },
+          {
+            "group": "UI Components",
+            "pages": [
+              "pages/ui-components",
+              "pages/ui-components/badge",
+              "pages/ui-components/container",
+              "pages/ui-components/copy-button",
+              "pages/ui-components/divider",
+              "pages/ui-components/link-button",
+              "pages/ui-components/plain-text",
+              "pages/ui-components/row",
+              "pages/ui-components/spacer",
+              "pages/ui-components/text"
+            ]
+          },
+          "pages/attachments",
+          "pages/security"
+        ]
       }
     ],
     "footerSocials":

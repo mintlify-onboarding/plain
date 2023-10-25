@@ -1,16 +1,15 @@
-import { Steps, Tab, Tabs, Callout } from 'nextra-theme-docs';
-import FirstApiCallTypescriptSDK from '../snippets/typescript-sdk/first-api-call.mdx';
+---
+title: "GraphQL API"
+sidebarTitle: "Overview"
+description: "Plain's GraphQL API can be used to manage any aspect of Plain. It's the API we use to build the Plain app which means there are no restrictions on what you can do via the API vs the Plain app."
+---
 
-# GraphQL API
-
-Plain's GraphQL API can be used to manage any aspect of Plain. It's the API we use to build the Plain app which means there are no restrictions on what you can do via the API vs the Plain app.
-
-<Callout type="info" emoji="🧠">
+<Note>
 Plain is built with this very GraphQL API we expose to you. This means that there are **no limitations** in what can be done via the API vs the UI.
 
 These docs just highlight the most interesting and most used APIs. If you want to do something beyond what is documented here, please [talk to us](mailto:help@plain.com) or explore our schema.
 
-</Callout>
+</Note>
 
 ## Key details
 
@@ -35,9 +34,9 @@ In this example, we're going to get a customer in your workspace by their email 
 
 You will need an API key with the `customer:read` permission. See [authentication](/graphql-api/authentication/) for details on how to get an API key
 
-<Tabs items={['CURL', 'Typescript SDK']}>
+<Tabs>
 
-  <Tab>
+  <Tab title="CURL">
     You'll need to set two shell variables:
 
     - `PLAIN_TOKEN`: The API key
@@ -54,28 +53,24 @@ You will need an API key with the `customer:read` permission. See [authenticatio
 
   </Tab>
 
-  <Tab>
+  <Tab title="Typescript SDK">
     This assumes you've installed our Typescript SDK.
 
-    <Steps>
-      ### Install the SDK
-
+<Steps>
+  <Step title="Install the SDK">
       ```shell
       npm install @team-plain/typescript-sdk
       ```
-
-      ### Set up the code
-      Make sure to replace the api key and email in the code
-
-      <FirstApiCallTypescriptSDK />
-
-      ### Run it
-
+  </Step>
+  <Step title="Set up the code">
+    Make sure to replace the api key and email in the code
+  </Step>
+  <Step title="Run it">
       ```shell
       node script.js
       ```
-
-    </Steps>
+  </Step>
+</Steps>
 
   </Tab>
 </Tabs>

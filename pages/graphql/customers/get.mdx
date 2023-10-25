@@ -1,12 +1,6 @@
-import { Tab, Tabs } from 'nextra-theme-docs';
-import GetCustomersGraphQL from '../../../snippets/graphql/get-customers.mdx';
-import GetCustomerByIdGraphQL from '../../../snippets/graphql/get-customer-by-id.mdx';
-import GetCustomerByEmailGraphQL from '../../../snippets/graphql/get-customer-by-email.mdx';
-import GetCustomersTypescriptSDK from '../../../snippets/typescript-sdk/get-customers.mdx';
-import GetCustomerByIdTypescriptSDK from '../../../snippets/typescript-sdk/get-customer-by-id.mdx';
-import GetCustomerByEmailTypescriptSDK from '../../../snippets/typescript-sdk/get-customer-by-email.mdx';
-
-# Fetch customers
+---
+title: "Fetch customers"
+---
 
 We provide a number of methods for fetching customers:
 
@@ -25,12 +19,66 @@ Our API allows you to fetch customers as a collection using `getCustomers` in ou
 This is a very flexible endpoint which supports a variety of options for filtering and sorting, for full details try our [API explorer](https://app.plain.com/developer/api-explorer/) or [Typescript SDK](https://github.com/team-plain/typescript-sdk/).
 
 <Tabs items={[ 'Typescript SDK', 'GraphQL']}>
-    <Tab>
-        <GetCustomersTypescriptSDK />
+    <Tab title="Typescript SDK">
+```typescript
+const client = new PlainClient({
+  apiKey: 'XXX',
+});
+ 
+const res = await client.getCustomers({
+  first: 50,
+  filters: { isMarkedAsSpam: false },
+  sortBy: { field: CustomersSortField.FullName, direction: SortDirection.Asc },
+});
+ 
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```
     </Tab>
 
-    <Tab>
-        <GetCustomersGraphQL />
+    <Tab title="GraphQL">
+```graphql Query
+query getCustomers($cursor: String!) {
+  customers(
+    after: $cursor
+    first: 50
+    filters: { isMarkedAsSpam: false }
+    sortBy: { field: FULL_NAME, direction: ASC }
+  ) {
+    edges {
+      node {
+        id
+        fullName
+        shortName
+        email {
+          email
+          isVerified
+        }
+        externalId
+        markedAsSpamAt {
+          iso8601
+        }
+      }
+    }
+    totalCount
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "cursor": "eyJjdXN0b21lcnMuZnVsbF9uYW1lIjoiQWlkYSBTY2hpbm5lciIsImN1c3RvbWVycy5pZCI6ImNfMDFHMThFU01TWkdUWTQwU1pITk03M0hBQkIifQ=="
+}
+```
     </Tab>
 
 </Tabs>
@@ -39,13 +87,47 @@ This is a very flexible endpoint which supports a variety of options for filteri
 
 If you already have the ID of a customer from within Plain or one of our other endpoints you can fetch more details about them using `getCustomerById` in our SDKs or the `customer` query in GraphQL.
 
-<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
-    <Tab>
-        <GetCustomerByIdTypescriptSDK />
+<Tabs>
+    <Tab title="Typescript SDK">
+```typescript
+const client = new PlainClient({
+  apiKey: 'XXX',
+});
+ 
+const res = await client.getCustomerById({ customerId: 'c_01H14DFQ4PDYBH398J1E99TWSS' });
+ 
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```
     </Tab>
 
-    <Tab>
-        <GetCustomerByIdGraphQL />
+    <Tab title="GraphQL">
+```graphql Query
+query getCustomerById($customerId: ID!) {
+  customer(customerId: $customerId) {
+    id
+    fullName
+    shortName
+    email {
+      email
+      isVerified
+    }
+    externalId
+    markedAsSpamAt {
+      iso8601
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "customerId": "c_01H14DFQ4PDYBH398J1E99TWSS"
+}
+```
     </Tab>
 
 </Tabs>
@@ -54,13 +136,47 @@ If you already have the ID of a customer from within Plain or one of our other e
 
 To fetch a customer by email you can use `getCustomerByEmail` in our SDKs or the `customerByEmail` query in GraphQL.
 
-<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
-    <Tab>
-        <GetCustomerByEmailTypescriptSDK />
+<Tabs>
+    <Tab title="Typescript SDK'">
+```typescript 
+const client = new PlainClient({
+  apiKey: 'XXX',
+});
+ 
+const res = await client.getCustomerByEmail({ email: 'bob@example.com' });
+ 
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```
     </Tab>
 
-    <Tab>
-        <GetCustomerByEmailGraphQL />
+    <Tab title="GraphQL">
+```graphql Query
+query getCustomerByEmail($email: String!) {
+  customerByEmail(email: $email) {
+    id
+    fullName
+    shortName
+    email {
+      email
+      isVerified
+    }
+    externalId
+    markedAsSpamAt {
+      iso8601
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "email": "bob@example.com"
+}
+```
     </Tab>
 
 </Tabs>

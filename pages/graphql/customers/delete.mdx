@@ -14,13 +14,53 @@ This operation requires the following permissions:
 
 - `customer:delete`
 
-<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
-    <Tab>
-        <DeleteCustomerTypescriptSDK />
+<Tabs>
+    <Tab title="Typescript SDK">
+```typescript
+import { PlainClient } from '../client';
+ 
+const client = new PlainClient({
+  apiKey: 'XXX',
+});
+ 
+const res = await client.deleteCustomer({
+  customerId: 'c_01H1P4TE62AS5KZ4CZFC0578ED',
+});
+ 
+if (res.error) {
+  console.error(res.error);
+} else {
+  // Success
+}
+```
     </Tab>
 
-    <Tab>
-        <DeleteCustomerGraphQL />
+    <Tab title="GraphQL">
+```grapql Mutation
+mutation deleteCustomer($input: DeleteCustomerInput!) {
+  deleteCustomer(input: $input) {
+    error {
+      __typename
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "input": {
+    "customerId": "c_01H14DFQ4PDYBH398J1E99TWSS"
+  }
+}
+```
     </Tab>
 
 </Tabs>

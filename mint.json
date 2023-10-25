@@ -1,0 +1,45 @@
+{
+    "name": "Plain",
+    "logo": {
+      "light": "/public/logo/light.png",
+      "dark": "public/logo/dark.png"
+    },
+    "favicon": "/public/favicon/favicon-dark.svg",
+    "colors": {
+      "primary": "#0E0E0E",
+      "light": "#FAFAFA",
+      "dark": "#0E0E0E"
+    },
+    "topbarCtaButton": {
+      "name": "Sign in",
+      "url": "https://app.plain.com/"
+    },
+    "anchors": [
+      {
+        "name": "Status",
+        "icon": "signal-bars",
+        "url": "https://status.plain.com/"
+      },
+      {
+        "name": "Support",
+        "icon": "headset",
+        "url": "help@plain.com"
+      },
+      {
+        "name": "Privacy Policy",
+        "icon": "lock",
+        "url": "https://www.plain.com/legal/privacy-policy"
+      }
+    ],
+    "navigation": [
+      {
+        "group": "Welcome to Plain",
+        "pages": ["pages/introduction"]
+      }
+    ],
+    "footerSocials":
+      {
+          "twitter": "https://twitter.com/plainsupport",
+          "linkedin": "https://www.linkedin.com/company/plainsupport"
+      }
+  }

@@ -1,0 +1,30 @@
+import { Tab, Tabs } from 'nextra-theme-docs';
+
+import ReplyEmailTypescriptSDK from '../../../snippets/typescript-sdk/reply-email.mdx';
+import ReplyEmailGraphQL from '../../../snippets/graphql/reply-email.mdx';
+
+# Reply to emails
+
+You can reply to an inbound email with the `replyToEmail` API.
+
+<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
+    <Tab>
+        This operation requires the following permissions:
+
+        - `email:create`
+        - `email:read`
+        - `attachment:read`
+
+        <ReplyEmailTypescriptSDK />
+    </Tab>
+
+    <Tab>
+        This operation requires the following permissions:
+
+        - `email:create`
+        - `email:read`
+
+        <ReplyEmailGraphQL />
+    </Tab>
+
+</Tabs>

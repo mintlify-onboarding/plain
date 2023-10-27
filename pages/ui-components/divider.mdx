@@ -1,15 +1,11 @@
-import { ImageContainer } from '../../components/imageContainer';
-import { Tab, Tabs } from 'nextra-theme-docs';
-import UIDividerTypescriptSDK from '../../snippets/typescript-sdk/ui-divider.mdx';
-import UIDividerGraphQL from '../../snippets/graphql/ui-divider.mdx';
+---
+title: "Divider"
+description: "Useful when you need a bit of structure."
+---
 
-# Divider
-
-Useful when you need a bit of structure.
-
-<ImageContainer withBorder={true}>
-  ![Example divider (LOL)](/images/ui-components/divider.png)
-</ImageContainer>
+<Frame>
+  ![Example divider](/public/images/ui-components/divider.png)
+</Frame>
 
 A divider has the following properties:
 
@@ -18,13 +14,38 @@ A divider has the following properties:
 
 For example:
 
-<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
-    <Tab>
-        <UIDividerTypescriptSDK />
+<Tabs>
+    <Tab title="Typescript SDK">
+```typescript
+import { uiComponent } from '@team-plain/typescript-sdk';
+ 
+[
+  uiComponent.text({ text: 'Content before an XS divider' }),
+  uiComponent.divider({ spacingSize: 'XS' }),
+  uiComponent.text({ text: 'Content after divider' }),
+];
+```
     </Tab>
 
-    <Tab>
-        <UIDividerGraphQL />
+    <Tab title="GraphQL">
+```json
+[
+  {
+    "componentText": {
+      "text": "Content before an XS divider"
+    }
+  },
+  {
+    "componentDivider": {
+      "dividerSpacingSize": "XS"
+    }
+  },
+  {
+    "componentText": {
+      "text": "Content after divider"
+    }
+  }
+```
     </Tab>
 
 </Tabs>

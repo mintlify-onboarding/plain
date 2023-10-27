@@ -1,15 +1,11 @@
-import { ImageContainer } from '../../components/imageContainer';
-import { Tab, Tabs } from 'nextra-theme-docs';
-import UIBadgeTypescriptSDK from '../../snippets/typescript-sdk/ui-badge.mdx';
-import UIBadgeGraphQL from '../../snippets/graphql/ui-badge.mdx';
+---
+title: "Badge"
+description: "Useful for statuses or when you need to attract attention to something."
+---
 
-# Badge
-
-Useful for statuses or when you need to attract attention to something.
-
-<ImageContainer withBorder={true}>
-  ![Example badges](/images/ui-components/badge.png)
-</ImageContainer>
+<Frame>
+  ![Example badges](/public/images/ui-components/badge.png)
+</Frame>
 
 A badge has the following properties:
 
@@ -18,13 +14,24 @@ A badge has the following properties:
 
 For example:
 
-<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
-    <Tab>
-        <UIBadgeTypescriptSDK />
+<Tabs>
+    <Tab title="Typescript SDK">
+```typescript
+import { uiComponent } from '@team-plain/typescript-sdk';
+ 
+uiComponent.badge({ label: 'Subscribed', color: 'GREEN' });
+```
     </Tab>
 
-    <Tab>
-        <UIBadgeGraphQL />
+    <Tab title="GraphQL">
+```json
+{
+  "componentBadge": {
+    "badgeLabel": "Subscribed",
+    "badgeColor": "GREEN"
+  }
+}
+```
     </Tab>
 
 </Tabs>

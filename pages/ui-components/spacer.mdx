@@ -1,13 +1,10 @@
-import { ImageContainer } from '../../components/imageContainer';
-import { Tab, Tabs } from 'nextra-theme-docs';
-import UISpacerTypescriptSDK from '../../snippets/typescript-sdk/ui-spacer.mdx';
-import UISpacerGraphQL from '../../snippets/graphql/ui-spacer.mdx';
+---
+title: "Spacer"
+---
 
-# Spacer
-
-<ImageContainer withBorder={true}>
-  ![Example spacer](/images/ui-components/spacer.png)
-</ImageContainer>
+<Frame>
+  ![Example spacer](/public/images/ui-components/spacer.png)
+</Frame>
 
 A link button has the following properties:
 
@@ -15,13 +12,39 @@ A link button has the following properties:
 
 For example:
 
-<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
-    <Tab>
-        <UISpacerTypescriptSDK />
+<Tabs>
+    <Tab title="Typescript SDK">
+```typescript
+import { uiComponent } from '@team-plain/typescript-sdk';
+ 
+[
+  uiComponent.text({ text: 'Content before an XS spacer' }),
+  uiComponent.spacer({ spacingSize: 'XS' }),
+  uiComponent.text({ text: 'Content after spacer' }),
+];
+```
     </Tab>
 
-    <Tab>
-        <UISpacerGraphQL />
+    <Tab title="GraphQL">
+```json
+[
+  {
+    "componentText": {
+      "text": "Content before an XS spacer"
+    }
+  },
+  {
+    "componentSpacer": {
+      "spacerSize": "XS"
+    }
+  },
+  {
+    "componentText": {
+      "text": "Content after spacer"
+    }
+  }
+]
+```
     </Tab>
 
 </Tabs>

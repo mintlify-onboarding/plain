@@ -1,15 +1,11 @@
-import { ImageContainer } from '../../components/imageContainer';
-import { Tab, Tabs } from 'nextra-theme-docs';
-import UILinkButtonTypescriptSDK from '../../snippets/typescript-sdk/ui-link-button.mdx';
-import UILinkButtonGraphQL from '../../snippets/graphql/ui-link-button.mdx';
+---
+title: "LinkButton"
+description: "Useful when you want to link somewhere external (e.g. your own admin tool or payment provider)"
+---
 
-# LinkButton
-
-Useful when you want to link somewhere external (e.g. your own admin tool or payment provider)
-
-<ImageContainer withBorder={true}>
-  ![Example link button](/images/ui-components/link-button.png)
-</ImageContainer>
+<Frame>
+  ![Example link button](/public/images/ui-components/link-button.png)
+</Frame>
 
 A link button has the following properties:
 
@@ -18,13 +14,27 @@ A link button has the following properties:
 
 For example:
 
-<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
-    <Tab>
-        <UILinkButtonTypescriptSDK />
+<Tabs>
+    <Tab title="Typescript SDK">
+```typescript
+import { uiComponent } from '@team-plain/typescript-sdk';
+ 
+uiComponent.linkButton({
+  label: 'Open in Admin Portal',
+  url: 'https://example.com',
+});
+```
     </Tab>
 
-    <Tab>
-        <UILinkButtonGraphQL />
+    <Tab title="GraphQL">
+```json
+{
+  "componentLinkButton": {
+    "linkButtonLabel": "Open in Admin Portal",
+    "linkButtonUrl": "https://example.com"
+  }
+}
+```
     </Tab>
 
 </Tabs>

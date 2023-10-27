@@ -1,15 +1,11 @@
-import { ImageContainer } from '../../components/imageContainer';
-import { Tab, Tabs } from 'nextra-theme-docs';
-import UIContainerTypescriptSDK from '../../snippets/typescript-sdk/ui-container.mdx';
-import UIContainerGraphQL from '../../snippets/graphql/ui-container.mdx';
+---
+title: "Container"
+description: "Useful when you need to create a bit of structure."
+---
 
-# Container
-
-Useful when you need to create a bit of structure.
-
-<ImageContainer withBorder={true}>
-  ![Example container](/images/ui-components/container.png)
-</ImageContainer>
+<Frame>
+  ![Example container](/public//images/ui-components/container.png)
+</Frame>
 
 A container has the following properties:
 
@@ -28,13 +24,31 @@ Allowed components within a Container are:
 
 For example:
 
-<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
-    <Tab>
-        <UIContainerTypescriptSDK />
+<Tabs>
+    <Tab title= "Typescript SDK">
+```typescript
+import { uiComponent } from '@team-plain/typescript-sdk';
+ 
+uiComponent.container({
+  content: [uiComponent.text({ text: 'Container content' })],
+});
+```
     </Tab>
 
-    <Tab>
-        <UIContainerGraphQL />
+    <Tab title= "GraphQL">
+```json
+{
+  "componentContainer": {
+    "containerContent": [
+      {
+        "componentText": {
+          "text": "Container content"
+        }
+      }
+    ]
+  }
+}
+```
     </Tab>
 
 </Tabs>

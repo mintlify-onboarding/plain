@@ -1,11 +1,7 @@
-import PageInfoAfterTypescriptSDK from '../../snippets/typescript-sdk/page-info-after.mdx';
-import PageInfoResponseTypescriptSDK from '../../snippets/typescript-sdk/page-info-response.mdx';
-import PageInfoAfterGraphQL from '../../snippets/graphql/page-info-after.mdx';
-import { Tab, Tabs } from 'nextra-theme-docs';
-
-# Pagination
-
-When fetching collections from our API you can use pagination to control how much data is returned. We will return 25 records per request by default and the maximum page size is 100 records.
+---
+title: "Pagination"
+description: "When fetching collections from our API you can use pagination to control how much data is returned. We will return 25 records per request by default and the maximum page size is 100 records."
+---
 
 We support two forms of page control arguments:
 
@@ -16,18 +12,63 @@ Note that these must not be mixed, e.g performing a query with values for first 
 
 Endpoints which return paginated results will return a `pageInfo` object along with a `totalCount` field which allows you to make subsequent calls with page controls. Using the `getCustomers` API as an example this would look as follows:
 
-<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
-    <Tab>
-        <PageInfoAfterTypescriptSDK />
+<Tabs>
+    <Tab title="Typescript SDK">
+```typescript
+import { PlainClient } from '../client';
+ 
+const client = new PlainClient({
+  apiKey: 'XXX',
+});
+ 
+const firstPage = client.getCustomers({});
+ 
+if (firstPage.error) {
+  console.error(firstPage.error);
+} else {
+  const { pageInfo } = firstPage.data;
+  const secondPage = await client.getCustomers({ after: pageInfo.endCursor, first: 50 });
+}
+```
 
         Notice how we use the cursor information from the first page to fetch the second page. The returned `pageInfo` looks as follows:
 
-        <PageInfoResponseTypescriptSDK />
+```json
+{
+  "customers": [
+    // Customers would be here, elided for clarity
+  ],
+  "totalCount": 1047,
+  "pageInfo": {
+    "hasPreviousPage": false,
+    "hasNextPage": true,
+    "startCursor": "eyJjdXN0b21lcnMuZnVsbF9uYW1lIjoiQWlzaGEgSGF5ZXMiLCJjdXN0b21lcnMuaWQiOiJjXzAxRllFWjlBRTk2S1c4SFJHSDhWVEZKU1JIIn0=",
+    "endCursor": "eyJjdXN0b21lcnMuZnVsbF9uYW1lIjoiQWxsYW4gQnJhdW4iLCJjdXN0b21lcnMuaWQiOiJjXzAxSDFSQkRBV1BFQlpIRzlIODVORzE5SFdQIn0="
+  }
+}
+```
     </Tab>
 
-    <Tab>
+    <Tab title="GraphQL">
         This will fetch a subsequent page of 50 entries by passing in the `endCursor` from an initial query.
-        <PageInfoAfterGraphQL />
+```grapql Second page
+query getCustomers($cursor: String!) {
+  customers(after: $cursor, first: 50) {
+    edges {
+      node {
+        fullName
+      }
+    }
+    totalCount
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+  }
+}
+```
 
     </Tab>
 

@@ -1,15 +1,11 @@
-import { ImageContainer } from '../../components/imageContainer';
-import { Tab, Tabs } from 'nextra-theme-docs';
-import UICopyButtonTypescriptSDK from '../../snippets/typescript-sdk/ui-copy-button.mdx';
-import UICopyButtonGraphQL from '../../snippets/graphql/ui-copy-button.mdx';
+---
+title: "CopyButton"
+description: "Useful if you have any IDs or other details you want to copy for use in messages or outside of Plain."
+---
 
-# CopyButton
-
-Useful if you have any IDs or other details you want to copy for use in messages or outside of Plain.
-
-<ImageContainer withBorder={true}>
-  ![Example copy button](/images/ui-components/copy-button.png)
-</ImageContainer>
+<Frame>
+  ![Example copy button](/public/images/ui-components/copy-button.png)
+</Frame>
 
 A copy button has the following properties:
 
@@ -19,13 +15,27 @@ A copy button has the following properties:
 
 For example:
 
-<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
-    <Tab>
-        <UICopyButtonTypescriptSDK />
+<Tabs>
+    <Tab title="Typescript SDK">
+```typescript
+import { uiComponent } from '@team-plain/typescript-sdk';
+ 
+uiComponent.copyButton({
+  value: '2a8f2dae-3580-402b-aa0a-243efae55e39',
+  tooltip: 'Order ID',
+});
+```
     </Tab>
 
-    <Tab>
-        <UICopyButtonGraphQL />
+    <Tab title="GraphQL">
+```json
+{
+  "componentCopyButton": {
+    "copyButtonTooltipLabel": "Order ID",
+    "copyButtonValue": "2a8f2dae-3580-402b-aa0a-243efae55e39"
+  }
+}
+```
     </Tab>
 
 </Tabs>

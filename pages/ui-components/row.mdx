@@ -1,13 +1,9 @@
-import { ImageContainer } from '../../components/imageContainer';
-import { Tab, Tabs } from 'nextra-theme-docs';
-import UIRowTypescriptSDK from '../../snippets/typescript-sdk/ui-row.mdx';
-import UIRowGraphQL from '../../snippets/graphql/ui-row.mdx';
+---
+title: "Row"
+description: "Useful when you need to show two things next to each-other."
+---
 
-# Row
-
-Useful when you need to show two things next to each-other.
-
-<ImageContainer withBorder={true}>![Example row](/images/ui-components/row.png)</ImageContainer>
+<Frame>![Example row](/public/images/ui-components/row.png)</Frame>
 
 The row component has the following properties:
 
@@ -26,13 +22,40 @@ The following components can be used in a row:
 
 For example:
 
-<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
-    <Tab>
-        <UIRowTypescriptSDK />
+<Tabs>
+    <Tab title="Typescript SDK">
+```typescript
+import { uiComponent } from '@team-plain/typescript-sdk';
+ 
+uiComponent.row({
+  mainContent: [uiComponent.text({ text: 'Membership' })],
+  asideContent: [uiComponent.badge({ label: 'Premium plan', color: 'BLUE' })],
+});
+```
     </Tab>
 
-    <Tab>
-        <UIRowGraphQL />
+    <Tab title="GraphQL">
+```json
+{
+  "componentRow": {
+    "rowMainContent": [
+      {
+        "componentText": {
+          "text": "Membership"
+        }
+      }
+    ],
+    "rowAsideContent": [
+      {
+        "componentBadge": {
+          "badgeLabel": "Premium plan",
+          "badgeColor": "BLUE"
+        }
+      }
+    ]
+  }
+}
+```
     </Tab>
 
 </Tabs>

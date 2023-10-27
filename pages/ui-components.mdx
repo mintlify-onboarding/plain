@@ -1,9 +1,8 @@
-import { ImageContainer } from '../components/imageContainer';
-
-# UI Component
-
-UI components are a way of describing some UI when using Plain's [Customer Timeline Entries](/custom-timeline-entries)
-and [Customer Cards](/customer-cards).
+---
+title: "UI Component"
+sidebarTitle: "Overview"
+description: "UI components are a way of describing some UI when using Plain's [Customer Timeline Entries](/pages/custom-timeline-entries)and [Customer Cards](/pages/customer-cards)."
+---
 
 For example - this is a button that links to Stripe.
 
@@ -18,9 +17,9 @@ For example - this is a button that links to Stripe.
 
 and it looks like this:
 
-<ImageContainer withBorder={true}>
-  ![Example button linking to stripe](/images/ui-components/link-button-stripe.png)
-</ImageContainer>
+<Frame>
+  ![Example button linking to stripe](/public/images/ui-components/link-button-stripe.png)
+</Frame>
 
 In the GraphQL API schema, we have two separate unions for Custom Timeline Entry Components and Customer Card
 Components, but both unions share the same types therefore they can be treated as the same.

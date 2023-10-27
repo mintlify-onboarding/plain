@@ -1,12 +1,6 @@
-import { Tabs, Tab } from 'nextra-theme-docs';
-import MarkThreadAsDoneTypescriptSdk from '../../../snippets/typescript-sdk/mark-thread-as-done.mdx';
-import MarkThreadAsDoneGraphQl from '../../../snippets/graphql/mark-thread-as-done.mdx';
-import SnoozeThreadTypescriptSdk from '../../../snippets/typescript-sdk/snooze-thread.mdx';
-import SnoozeThreadGraphQl from '../../../snippets/graphql/snooze-thread.mdx';
-import MarkThreadAsTodoTypescriptSdk from '../../../snippets/typescript-sdk/mark-thread-as-todo.mdx';
-import MarkThreadAsTodoGraphQl from '../../../snippets/graphql/mark-thread-as-todo.mdx';
-
-# Changing thread status
+---
+title: "Changing thread status"
+---
 
 Threads can be in one of 3 statuses:
 
@@ -29,12 +23,70 @@ When any activity happens in a thread, it will move back to `Todo`.
 
 Unlike traditional ticketing software, we expect a ticket to move between `Todo` and `Done` a number of times in the course of helping a customer. This will not break or influence any metrics. `Done` in Plain means "I'm done for now, there is nothing left for me to do".
 
-<Tabs items={['Typescript SDK', 'GraphQL']}>
-  <Tab>
-    <MarkThreadAsDoneTypescriptSdk />
+<Tabs>
+  <Tab title="Typescript SDK"> 
+```typescript
+import { PlainClient } from '@team-plain/typescript-sdk';
+ 
+const client = new PlainClient({
+  apiKey: 'XXX',
+});
+ 
+const res = await client.markThreadAsDone({
+  threadId: 'th_01HB924RWAW8H3Q8KZDFWYBJHZ',
+});
+ 
+if (res.error) {
+  console.error(res.error);
+} else {
+  // The full thread is returned as res.data
+  console.log(`Thread marked as done (${res.data.id})`);
+}
+```
   </Tab>
-  <Tab>
-    <MarkThreadAsDoneGraphQl />
+  <Tab title="GraphQL"> 
+```graphql Mutation
+mutation markThreadAsDone($input: MarkThreadAsDoneInput!) {
+  markThreadAsDone(input: $input) {
+    thread {
+      __typename
+      id
+      externalId
+      customer {
+        id
+      }
+      status
+      statusChangedAt {
+        __typename
+        iso8601
+        unixTimestamp
+      }
+      title
+      previewText
+      priority
+    }
+    error {
+      __typename
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "input": {
+    "threadId": "th_01H8H46YPB2S4MAJM382FG9423"
+  }
+}
+```
   </Tab>
 </Tabs>
 
@@ -44,12 +96,72 @@ You can snooze threads for a duration of time defined in seconds.
 
 When any activity happens in a thread, it will be automatically unsnoozed and move to **Todo**. Otherwise threads will be unsnoozed when the timer runs out.
 
-<Tabs items={['Typescript SDK', 'GraphQL']}>
-  <Tab>
-    <SnoozeThreadTypescriptSdk />
+<Tabs>
+  <Tab title="Typescript SDK">
+```typescript
+import { PlainClient } from '@team-plain/typescript-sdk';
+ 
+const client = new PlainClient({
+  apiKey: 'XXX',
+});
+ 
+const res = await client.snoozeThread({
+  threadId: 'th_01HB924RWAW8H3Q8KZDFWYBJHZ',
+  durationSeconds: 5 * 24 * 60 * 60, // 5 days
+});
+ 
+if (res.error) {
+  console.error(res.error);
+} else {
+  // The full thread is returned as res.data
+  console.log(`Thread snoozed (${res.data.id}`);
+}
+```
   </Tab>
-  <Tab>
-    <SnoozeThreadGraphQl />
+  <Tab title="GraphQL">
+```grapql Mutation
+mutation snoozeThread($input: SnoozeThreadInput!) {
+  snoozeThread(input: $input) {
+    thread {
+      __typename
+      id
+      externalId
+      customer {
+        id
+      }
+      status
+      statusChangedAt {
+        __typename
+        iso8601
+        unixTimestamp
+      }
+      title
+      previewText
+      priority
+    }
+    error {
+      __typename
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "input": {
+    "threadId": "th_01H8H46YPB2S4MAJM382FG9423",
+    "durationSeconds": 432000 // 5 days
+  }
+}
+```
   </Tab>
 </Tabs>
 
@@ -59,9 +171,66 @@ This is useful if you mistakenly marked a thread as done or snoozed a thread and
 
 <Tabs items={['Typescript SDK', 'GraphQL']}>
   <Tab>
-    <MarkThreadAsTodoTypescriptSdk />
+```typescript
+import { PlainClient } from '@team-plain/typescript-sdk';
+ 
+const client = new PlainClient({
+  apiKey: 'XXX',
+});
+ 
+const res = await client.markThreadAsTodo({
+  threadId: 'th_01HB924RWAW8H3Q8KZDFWYBJHZ',
+});
+ 
+if (res.error) {
+  console.error(res.error);
+} else {
+  // The full thread is returned as res.data
+  console.log(`Thread marked as todo (${res.data.id})`);
+}
+```
   </Tab>
   <Tab>
-    <MarkThreadAsTodoGraphQl />
+```graphql Mutation
+mutation markThreadAsTodo($input: MarkThreadAsTodoInput!) {
+  markThreadAsTodo(input: $input) {
+    thread {
+      __typename
+      id
+      externalId
+      customer {
+        id
+      }
+      status
+      statusChangedAt {
+        __typename
+        iso8601
+        unixTimestamp
+      }
+      title
+      previewText
+      priority
+    }
+    error {
+      __typename
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+```json Variables
+{
+  "input": {
+    "threadId": "th_01H8H46YPB2S4MAJM382FG9423"
+  }
+}
+```
   </Tab>
 </Tabs>

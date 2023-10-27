@@ -104,13 +104,18 @@
                   "pages/graphql/threads/assignment",
                   "pages/graphql/threads/status-changes"
                 ]
-              }                 
+              },
+              "pages/graphql/pagination",
+              "pages/graphql/error-handling",
+              "pages/graphql/error-codes",
+              "pages/graphql/api-explorer",
+              "pages/graphql/typescript-sdk"
             ]
           },
           {
             "group": "Customer Cards",
             "pages": [
-              "pages/customer-cards-setup",
+              "pages/customer-cards",
               "pages/customer-cards/documentation",
               "pages/customer-cards/playground",
               "pages/customer-cards/examples"
@@ -149,7 +154,8 @@
             ]
           },
           "pages/attachments",
-          "pages/security"
+          "pages/security",
+          "pages/migrate-to-threads"
         ]
       }
     ],

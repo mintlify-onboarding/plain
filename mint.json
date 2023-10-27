@@ -2,7 +2,7 @@
     "name": "Plain",
     "logo": {
       "light": "/public/logo/light.png",
-      "dark": "public/logo/dark.png"
+      "dark": "/public/logo/dark.png"
     },
     "favicon": "/public/favicon/favicon.png",
     "colors": {
@@ -79,7 +79,32 @@
                 "pages/graphql/events",
                 "pages/graphql/events/create-customer-event"
                 ]
-              }
+              },
+              {
+                "group": "Labels",
+                "pages": [
+                  "pages/graphql/labels",
+                  "pages/graphql/labels/add",
+                  "pages/graphql/labels/remove"
+                ]
+              },
+              {
+                "group": "Messaging",
+                "pages": [
+                  "pages/graphql/messaging",
+                  "pages/graphql/messaging/send-email",
+                  "pages/graphql/messaging/reply-email"
+                ]
+              },
+              {
+                "group": "Threads",
+                "pages": [
+                  "pages/graphql/threads",
+                  "pages/graphql/threads/create",
+                  "pages/graphql/threads/assignment",
+                  "pages/graphql/threads/status-changes"
+                ]
+              }                 
             ]
           },
           {

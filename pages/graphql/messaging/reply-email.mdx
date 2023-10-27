@@ -7,24 +7,65 @@ import ReplyEmailGraphQL from '../../../snippets/graphql/reply-email.mdx';
 
 You can reply to an inbound email with the `replyToEmail` API.
 
-<Tabs items={[ 'Typescript SDK', 'GraphQL']}>
-    <Tab>
+<Tabs>
+    <Tab title="Typescript SDK">
         This operation requires the following permissions:
 
         - `email:create`
         - `email:read`
         - `attachment:read`
 
-        <ReplyEmailTypescriptSDK />
+```typescript
+import { PlainClient } from '@team-plain/typescript-sdk';
+ 
+const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
+ 
+client.replyToEmail({
+  customerId: 'c_01GTC6ZHCMAGR06FMPN9VY5J95',
+  inReplyToEmailId: 'em_01GM2X8K7D3RZ7ZFGHZ2AYG3SA',
+  textContent: 'The plain text version of your reply goes here.',
+  markdownContent: 'The markdown **version** of your _reply_ goes here.',
+});
+ 
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```
     </Tab>
 
-    <Tab>
+    <Tab title="GraphQL">
         This operation requires the following permissions:
 
         - `email:create`
         - `email:read`
 
-        <ReplyEmailGraphQL />
+```graphql Mutation
+mutation replyToEmail($input: ReplyToEmailInput!) {
+  replyToEmail(input: $input) {
+    email {
+      id
+    }
+    error {
+      message
+      type
+      code
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "input": {
+    "customerId": "c_01GTC6ZHCMAGR06FMPN9VY5J95",
+    "inReplyToEmailId": "em_01GM2X8K7D3RZ7ZFGHZ2AYG3SA",
+    "textContent": "The plain text version of your reply goes here.",
+    "markdownContent": "The markdown **version** of your _reply_ goes here."
+  }
+}
+```
     </Tab>
 
 </Tabs>

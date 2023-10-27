@@ -1,9 +1,8 @@
-import { Callout } from 'nextra-theme-docs';
-import ThreadsResponse from '../../snippets/typescript-sdk/threads-response.mdx';
-
-# Threads
-
-Threads are the core of Plain's data model and equivalent to tickets or conversations in other support platforms. When you use Plain to help a customer you assign yourself to a thread and then mark the thread as done once you're done helping.
+---
+title: "Threads"
+sidebarTitle: Overview
+description: "Threads are the core of Plain's data model and equivalent to tickets or conversations in other support platforms. When you use Plain to help a customer you assign yourself to a thread and then mark the thread as done once you're done helping."
+---
 
 Threads are automatically created when a new email is received but can also be created via the API (when a customer submits a contact form for example).
 
@@ -13,10 +12,10 @@ Threads belong to one customer but can contain multiple email threads and custom
 
 An example thread looks like this:
 
-<Callout type="info">
-  Note: The below is only showing a subset fields a thread has. Since our API is a GraphQL API you
+<Note>
+  The below is only showing a subset fields a thread has. Since our API is a GraphQL API you
   decide which fields you need when you make API requests. Use our [API
   explorer](https://app.plain.com/developer/api-explorer) to discover the full schema of threads.
-</Callout>
+</Note>
 
 <ThreadsResponse />
